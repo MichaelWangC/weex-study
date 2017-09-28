@@ -9,9 +9,11 @@ module.exports = {
       native: resolve('src/native.entry.js')
     },
     index: resolve('public/index.html'),
-    publicDistRoot: resolve('public/dist'),
+    publicDistRoot: resolve('public/dist/weex'),
+    publicPath: '/dist/weex/',
+    publicWebRoot: resolve('public/dist/web'),
+    publicWebPath: '/dist/web/',
     publicRoot: resolve('public'),
-    publicPath: '/dist/',
     productionSourceMap: true,
   },
   dev: {
