@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <WeexSDK/WeexSDK.h>
+#import "WeexViewController.h"
+#import "WeexSDKManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    [WeexSDKManager setup];
+    
+    //
+    WeexViewController *viewC = [[WeexViewController alloc] init];
+    self.window.rootViewController = [[BaseNavViewController alloc] initWithRootViewController:viewC];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

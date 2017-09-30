@@ -7,17 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C8F1CEE1F7F707D0090BFC5 /* WeexSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */; };
+		4C8F1CF21F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF11F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m */; };
 		4CFEA7801F7CAADB009CF5C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA77F1F7CAADB009CF5C9 /* main.m */; };
 		4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7821F7CAADB009CF5C9 /* AppDelegate.m */; };
 		4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7851F7CAADB009CF5C9 /* ViewController.m */; };
 		4CFEA7891F7CAADB009CF5C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEA7871F7CAADB009CF5C9 /* Main.storyboard */; };
 		4CFEA78B1F7CAADB009CF5C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEA78A1F7CAADB009CF5C9 /* Assets.xcassets */; };
 		4CFEA78E1F7CAADB009CF5C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEA78C1F7CAADB009CF5C9 /* LaunchScreen.storyboard */; };
+		4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA79A1F7CC59A009CF5C9 /* BaseViewController.m */; };
+		4CFEA79E1F7CC609009CF5C9 /* WeexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA79D1F7CC609009CF5C9 /* WeexViewController.m */; };
+		4CFEA7A11F7CC655009CF5C9 /* BaseNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7A01F7CC655009CF5C9 /* BaseNavViewController.m */; };
 		9BFFE6592713B9D4F883F191 /* libPods-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB6CD64F332E977DA5B95CD /* libPods-ios.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2A4D552FCBA3DD5D30D6FA9F /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		4C8F1CEC1F7F707D0090BFC5 /* WeexSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeexSDKManager.h; sourceTree = "<group>"; };
+		4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeexSDKManager.m; sourceTree = "<group>"; };
+		4C8F1CF01F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXImgLoaderDefaultImpl.h; sourceTree = "<group>"; };
+		4C8F1CF11F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXImgLoaderDefaultImpl.m; sourceTree = "<group>"; };
+		4C8F1CF31F7F85EC0090BFC5 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		4CFEA77B1F7CAADB009CF5C9 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFEA77F1F7CAADB009CF5C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFEA7811F7CAADB009CF5C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,6 +38,12 @@
 		4CFEA78A1F7CAADB009CF5C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CFEA78D1F7CAADB009CF5C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CFEA78F1F7CAADB009CF5C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CFEA7991F7CC59A009CF5C9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		4CFEA79A1F7CC59A009CF5C9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		4CFEA79C1F7CC609009CF5C9 /* WeexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeexViewController.h; sourceTree = "<group>"; };
+		4CFEA79D1F7CC609009CF5C9 /* WeexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeexViewController.m; sourceTree = "<group>"; };
+		4CFEA79F1F7CC655009CF5C9 /* BaseNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavViewController.h; sourceTree = "<group>"; };
+		4CFEA7A01F7CC655009CF5C9 /* BaseNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavViewController.m; sourceTree = "<group>"; };
 		4DB6CD64F332E977DA5B95CD /* libPods-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B0B97E25E4C9F05463FB56 /* Pods-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -44,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C8F1CEF1F7F7EC70090BFC5 /* module */ = {
+			isa = PBXGroup;
+			children = (
+				4C8F1CF01F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.h */,
+				4C8F1CF11F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m */,
+			);
+			path = module;
+			sourceTree = "<group>";
+		};
 		4CFEA7721F7CAADA009CF5C9 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +90,10 @@
 		4CFEA77D1F7CAADB009CF5C9 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				4CFEA7951F7CC49B009CF5C9 /* Config */,
+				4CFEA7961F7CC49B009CF5C9 /* Core */,
+				4CFEA7971F7CC49B009CF5C9 /* Extend */,
+				4CFEA7981F7CC49B009CF5C9 /* Source */,
 				4CFEA7811F7CAADB009CF5C9 /* AppDelegate.h */,
 				4CFEA7821F7CAADB009CF5C9 /* AppDelegate.m */,
 				4CFEA7841F7CAADB009CF5C9 /* ViewController.h */,
@@ -82,8 +111,46 @@
 			isa = PBXGroup;
 			children = (
 				4CFEA77F1F7CAADB009CF5C9 /* main.m */,
+				4C8F1CF31F7F85EC0090BFC5 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CFEA7951F7CC49B009CF5C9 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4C8F1CEC1F7F707D0090BFC5 /* WeexSDKManager.h */,
+				4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		4CFEA7961F7CC49B009CF5C9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4CFEA7991F7CC59A009CF5C9 /* BaseViewController.h */,
+				4CFEA79A1F7CC59A009CF5C9 /* BaseViewController.m */,
+				4CFEA79C1F7CC609009CF5C9 /* WeexViewController.h */,
+				4CFEA79D1F7CC609009CF5C9 /* WeexViewController.m */,
+				4CFEA79F1F7CC655009CF5C9 /* BaseNavViewController.h */,
+				4CFEA7A01F7CC655009CF5C9 /* BaseNavViewController.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4CFEA7971F7CC49B009CF5C9 /* Extend */ = {
+			isa = PBXGroup;
+			children = (
+				4C8F1CEF1F7F7EC70090BFC5 /* module */,
+			);
+			path = Extend;
+			sourceTree = "<group>";
+		};
+		4CFEA7981F7CC49B009CF5C9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		55C15F00554FA931073709E7 /* Pods */ = {
@@ -232,9 +299,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C8F1CEE1F7F707D0090BFC5 /* WeexSDKManager.m in Sources */,
+				4CFEA79E1F7CC609009CF5C9 /* WeexViewController.m in Sources */,
 				4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */,
+				4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */,
 				4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */,
+				4C8F1CF21F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m in Sources */,
 				4CFEA7801F7CAADB009CF5C9 /* main.m in Sources */,
+				4CFEA7A11F7CC655009CF5C9 /* BaseNavViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,10 +429,12 @@
 			baseConfigurationReference = 2A4D552FCBA3DD5D30D6FA9F /* Pods-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = ios/PrefixHeader.pch;
 				INFOPLIST_FILE = ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weex.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -369,10 +443,12 @@
 			baseConfigurationReference = A5B0B97E25E4C9F05463FB56 /* Pods-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = ios/PrefixHeader.pch;
 				INFOPLIST_FILE = ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weex.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -395,6 +471,7 @@
 				4CFEA7941F7CAADB009CF5C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
