@@ -8,12 +8,7 @@
 
 #import "WeexViewController.h"
 #import <WeexSDK/WXSDKInstance.h>
-
-#if TARGET_IPHONE_SIMULATOR
-#define DEMO_HOST @"127.0.0.1"
-#else
-#define DEMO_HOST @"192.168.2.130"
-#endif
+#import "ConfigInfo.h"
 
 @interface WeexViewController ()
 
@@ -73,7 +68,7 @@
     };
     
     if (self.url == NULL) {
-        NSString *url = [NSString stringWithFormat:@"http://%@:8081/dist/weex/App.js", DEMO_HOST];
+        NSString *url = [[ConfigInfo sharedInstance] urlHome];
         self.url = [NSURL URLWithString:url];
     }
     

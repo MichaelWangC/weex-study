@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4C8F1CEE1F7F707D0090BFC5 /* WeexSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */; };
 		4C8F1CF21F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF11F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m */; };
+		4C8F1CF61F7F8FBD0090BFC5 /* ConfigInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF51F7F8FBD0090BFC5 /* ConfigInfo.m */; };
+		4C8F1CF81F7F936C0090BFC5 /* env.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF71F7F936C0090BFC5 /* env.plist */; };
 		4CFEA7801F7CAADB009CF5C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA77F1F7CAADB009CF5C9 /* main.m */; };
 		4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7821F7CAADB009CF5C9 /* AppDelegate.m */; };
 		4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7851F7CAADB009CF5C9 /* ViewController.m */; };
@@ -28,6 +30,9 @@
 		4C8F1CF01F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXImgLoaderDefaultImpl.h; sourceTree = "<group>"; };
 		4C8F1CF11F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXImgLoaderDefaultImpl.m; sourceTree = "<group>"; };
 		4C8F1CF31F7F85EC0090BFC5 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4C8F1CF41F7F8FBD0090BFC5 /* ConfigInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigInfo.h; sourceTree = "<group>"; };
+		4C8F1CF51F7F8FBD0090BFC5 /* ConfigInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigInfo.m; sourceTree = "<group>"; };
+		4C8F1CF71F7F936C0090BFC5 /* env.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = env.plist; sourceTree = "<group>"; };
 		4CFEA77B1F7CAADB009CF5C9 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFEA77F1F7CAADB009CF5C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFEA7811F7CAADB009CF5C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,8 +124,11 @@
 		4CFEA7951F7CC49B009CF5C9 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				4C8F1CF71F7F936C0090BFC5 /* env.plist */,
 				4C8F1CEC1F7F707D0090BFC5 /* WeexSDKManager.h */,
 				4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */,
+				4C8F1CF41F7F8FBD0090BFC5 /* ConfigInfo.h */,
+				4C8F1CF51F7F8FBD0090BFC5 /* ConfigInfo.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -231,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C8F1CF81F7F936C0090BFC5 /* env.plist in Resources */,
 				4CFEA78E1F7CAADB009CF5C9 /* LaunchScreen.storyboard in Resources */,
 				4CFEA78B1F7CAADB009CF5C9 /* Assets.xcassets in Resources */,
 				4CFEA7891F7CAADB009CF5C9 /* Main.storyboard in Resources */,
@@ -304,6 +313,7 @@
 				4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */,
 				4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */,
 				4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */,
+				4C8F1CF61F7F8FBD0090BFC5 /* ConfigInfo.m in Sources */,
 				4C8F1CF21F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m in Sources */,
 				4CFEA7801F7CAADB009CF5C9 /* main.m in Sources */,
 				4CFEA7A11F7CC655009CF5C9 /* BaseNavViewController.m in Sources */,
@@ -431,6 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = ios/PrefixHeader.pch;
 				INFOPLIST_FILE = ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weex.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -445,6 +456,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = ios/PrefixHeader.pch;
 				INFOPLIST_FILE = ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.weex.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";

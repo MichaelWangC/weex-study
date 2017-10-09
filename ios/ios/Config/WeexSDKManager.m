@@ -15,7 +15,7 @@
 @implementation WeexSDKManager
 
 +(void)setup {
-    [WXAppConfiguration setAppGroup:@"AliApp"];
+    [WXAppConfiguration setAppGroup:@"App"];
     [WXAppConfiguration setAppName:@"WeexDemo"];
     [WXAppConfiguration setAppVersion:@"1.0.0"];
     
