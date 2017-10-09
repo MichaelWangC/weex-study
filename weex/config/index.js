@@ -5,8 +5,7 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     entryPath: {
-      web: resolve('src/web.entry.js'),
-      native: resolve('src/native.entry.js')
+      web: resolve('src/web.entry.js')
     },
     index: resolve('public/index.html'),
     publicDistRoot: resolve('public/dist/weex'),
