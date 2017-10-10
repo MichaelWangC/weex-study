@@ -46,6 +46,12 @@ var baseConfig = {
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: /node_modules/
+    }, {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url-loader',
+      query: {
+        name: '[name].[ext]?[hash]'
+      }
     }]
   },
   plugins: [

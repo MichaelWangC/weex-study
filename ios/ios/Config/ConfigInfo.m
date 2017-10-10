@@ -64,7 +64,7 @@
 }
 
 -(NSString *) urlHome {
-    NSString *url = [NSString stringWithFormat:@"%@dist/weex/App.js",[self urlBase]];
+    NSString *url = [NSString stringWithFormat:@"%@dist/weex/index.js",[self urlBase]];
     return url;
 }
 

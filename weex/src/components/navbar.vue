@@ -48,7 +48,7 @@
     bottom: 28; 
     right: 32; 
     text-align: right;
-    font-size: 32; 
+    font-size: 32;
     font-family: 'Open Sans', sans-serif;
   }
   .left-text {
@@ -56,7 +56,7 @@
     bottom: 28; 
     left :32; 
     text-align :left;  
-    font-size: 32; 
+    font-size: 32;
     font-family: 'Open Sans', sans-serif;
   }
   .center-text {

@@ -25,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		2A4D552FCBA3DD5D30D6FA9F /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		4C69360E1F8B68460071448A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4C6936101F8B68690071448A /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		4C6936121F8B68770071448A /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		4C8F1CEC1F7F707D0090BFC5 /* WeexSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeexSDKManager.h; sourceTree = "<group>"; };
 		4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeexSDKManager.m; sourceTree = "<group>"; };
 		4C8F1CF01F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXImgLoaderDefaultImpl.h; sourceTree = "<group>"; };
@@ -173,6 +176,9 @@
 		577EF25EA278414CAD1D37A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C6936121F8B68770071448A /* libsqlite3.0.tbd */,
+				4C6936101F8B68690071448A /* libstdc++.tbd */,
+				4C69360E1F8B68460071448A /* libz.tbd */,
 				4DB6CD64F332E977DA5B95CD /* libPods-ios.a */,
 			);
 			name = Frameworks;
