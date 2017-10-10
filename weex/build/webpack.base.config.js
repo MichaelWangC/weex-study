@@ -33,7 +33,7 @@ function walk(dir) {
 
       weexEntry[name] = fullpath + '?entry=true';
 
-    } else if (stat.isDirectory() && file !== 'components' && file !== 'assets') {
+    } else if (stat.isDirectory() && file !== 'components' && file !== 'images') {
       const subdir = pathTo.join(dir, file);
       walk(subdir);
     }
