@@ -6,11 +6,13 @@ var vueLoaderConfig = require('./vue-loader.config.js')
 var config = require('../config')
 
 /// 入口文件配置
+const entry = {};
 const weexEntry = {};
 const vueWebTemp = 'entrys';
 const fs = require('fs-extra')
 // const hasPluginInstalled = fs.existsSync('./web/plugin.js')
 var resolve = require('../build/utils').resolve
+// var isWin = /^win/.test(process.platform);
 
 // 获取入口文件 配置
 function walk(dir) {
@@ -24,6 +26,10 @@ function walk(dir) {
     if (stat.isFile() && extname === '.vue') {
       /// 生成入口文件
       const name = pathTo.join(dir, pathTo.basename(file, extname)); // App Hello
+      // 生成对饮vue的 js入口文件 放入temp文件夹中
+      // const entryFile = pathTo.join(vueWebTemp, dir, pathTo.basename(file, extname) + '.js'); // temp/App.js temp/components/Hello.js
+      // fs.outputFileSync(pathTo.join(entryFile), getEntryFileContent(entryFile, fullpath));
+      // entry[name] = pathTo.join(resolve(vueWebTemp), dir, pathTo.basename(file, extname) + '.js') + '?entry=true';
 
       weexEntry[name] = fullpath + '?entry=true';
 
@@ -61,7 +67,7 @@ var baseConfig = {
 
 var webConfig = merge(baseConfig, {
   entry: {
-    App: config.build.entryPath.web
+    index: config.build.entryPath.web
   },
   output: {
     path: config.build.publicWebRoot,
@@ -69,6 +75,13 @@ var webConfig = merge(baseConfig, {
     publicPath: config.build.publicWebPath,
     // publicPath: '/dist/web/'
     filename: '[name].js'
+  },
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+    }
   },
   module: {
     rules: [{

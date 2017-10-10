@@ -51,6 +51,7 @@
 </style>
 
 <script>
+  import tabitem from './tabitem.vue'
   module.exports = {
     props: {
       tabItems: { default: [] },
@@ -63,7 +64,7 @@
       }
     },
     components: {
-      tabitem: require('./tabitem.vue')
+      tabitem
     },
     created: function () {
       this.select(this.selectedIndex);

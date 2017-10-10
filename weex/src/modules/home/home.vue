@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import quickbtn from '../../components/quickButton.vue'
 export default {
     data() {
         return {
@@ -95,7 +96,7 @@ export default {
         }
     },
     components: {
-        quickbtn: require('../../components/quickButton.vue')
+        quickbtn
     }
 }
 </script>

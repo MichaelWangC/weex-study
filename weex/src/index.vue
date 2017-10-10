@@ -1,5 +1,7 @@
 <template>
   <div>
+      <!-- <h1>hello!</h1>
+      <hello></hello> -->
     <navpage 
       dataRole="none" 
       :title="title" 
@@ -11,12 +13,15 @@
 </template>
 
 <script>
+import mytabbar from './components/tabbar.vue'
+import navpage from './components/navpage.vue'
+import hello from './components/Hello.vue'
+
 var getBaseURL = require('./utils/base-url.js').getBaseURL
 
 module.exports = {
   data: function() {
     return {
-      navBarHeight: 88,
       title: "首页",
       tabItems: [
         {
@@ -26,8 +31,8 @@ module.exports = {
           icon: '',
           image: require('./assets/images/home/icon_home_unselected.png'),
           selectedImage: require('./assets/images/home/icon_home_selected.png'),
-          src: './modules/home/home.js',
-          visibility: 'hidden',
+          src: 'modules/home/home.js',
+          visibility: 'visible',
         },
         {
           index: 1,
@@ -36,7 +41,7 @@ module.exports = {
           icon: '',
           image: require('./assets/images/home/icon_product_unselected.png'),
           selectedImage: require('./assets/images/home/icon_product_selected.png'),
-          src: './App.js',
+          src: 'App.js',
           visibility: 'hidden',
         },
         {
@@ -46,15 +51,16 @@ module.exports = {
           icon: '',
           image: require('./assets/images/home/icon_mine_unselected.png'),
           selectedImage: require('./assets/images/home/icon_mine_selected.png'),
-          src: './App.js',
+          src: 'App.js',
           visibility: 'hidden',
         }
       ],
     }
   },
   components: {
-    mytabbar: require('./components/tabbar.vue'),
-    navpage: require('./components/navpage.vue')
+    mytabbar,
+    navpage,
+    hello
   },
   created: function() {
     for (var i = 0; i < this.tabItems.length; i++) {

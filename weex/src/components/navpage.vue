@@ -33,6 +33,7 @@
 </style>
 
 <script>
+  import navbar from './navbar.vue'
   module.exports = {
     created: function () {
       // iOS 导航栏 需要考虑状态栏的高度
@@ -42,7 +43,7 @@
       }
     },
     components: {
-      navbar: require('./navbar.vue')
+      navbar
     },
     props: {
       dataRole: { default: 'navbar' },
