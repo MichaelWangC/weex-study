@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C6936161F8DF0C90071448A /* WXEventModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6936151F8DF0C90071448A /* WXEventModule.m */; };
 		4C8F1CEE1F7F707D0090BFC5 /* WeexSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */; };
 		4C8F1CF21F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF11F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m */; };
 		4C8F1CF61F7F8FBD0090BFC5 /* ConfigInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF51F7F8FBD0090BFC5 /* ConfigInfo.m */; };
@@ -28,6 +29,8 @@
 		4C69360E1F8B68460071448A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4C6936101F8B68690071448A /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		4C6936121F8B68770071448A /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		4C6936141F8DF0C90071448A /* WXEventModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXEventModule.h; sourceTree = "<group>"; };
+		4C6936151F8DF0C90071448A /* WXEventModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXEventModule.m; sourceTree = "<group>"; };
 		4C8F1CEC1F7F707D0090BFC5 /* WeexSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeexSDKManager.h; sourceTree = "<group>"; };
 		4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeexSDKManager.m; sourceTree = "<group>"; };
 		4C8F1CF01F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXImgLoaderDefaultImpl.h; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 			children = (
 				4C8F1CF01F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.h */,
 				4C8F1CF11F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m */,
+				4C6936141F8DF0C90071448A /* WXEventModule.h */,
+				4C6936151F8DF0C90071448A /* WXEventModule.m */,
 			);
 			path = module;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */,
 				4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */,
 				4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */,
+				4C6936161F8DF0C90071448A /* WXEventModule.m in Sources */,
 				4C8F1CF61F7F8FBD0090BFC5 /* ConfigInfo.m in Sources */,
 				4C8F1CF21F7F7EFE0090BFC5 /* WXImgLoaderDefaultImpl.m in Sources */,
 				4CFEA7801F7CAADB009CF5C9 /* main.m in Sources */,

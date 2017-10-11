@@ -9,8 +9,7 @@
 #import "WeexSDKManager.h"
 #import <WeexSDK/WeexSDK.h>
 #import "WXImgLoaderDefaultImpl.h"
-//#import "WXEventModule.h"
-//#import "WXNavigationItemModule.h"
+#import "WXEventModule.h"
 
 @implementation WeexSDKManager
 
@@ -23,8 +22,7 @@
     
     [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
     
-//    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
-//    [WXSDKEngine registerModule:@"navigationItem" withClass:[WXNavigationItemModule class]];
+    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
     
 #ifdef DEBUG
     [WXLog setLogLevel:WXLogLevelLog];

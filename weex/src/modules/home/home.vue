@@ -112,13 +112,10 @@ export default {
     },
     methods: {
         naviBarRightItemClick: function (params) {
-            var modal = weex.requireModule('modal')
-            modal.alert({
-                message: 'go to message',
-                duration: 0.3
-            }, function (value) {
-                console.log('alert callback', value)
-            })
+            var event = weex.requireModule('event')
+            event.openURL("../../App.js?hasLeftItem=true")
+            const storage = weex.requireModule('storage')
+            storage.setItem("hasLeftItem", "true")
         }
     }
 }

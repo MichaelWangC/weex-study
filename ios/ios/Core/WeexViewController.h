@@ -12,6 +12,4 @@
 
 @property (nonatomic, strong) NSURL *url;
 
--(void)refreshWeex;
-
 @end

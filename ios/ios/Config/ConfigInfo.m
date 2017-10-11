@@ -8,6 +8,12 @@
 
 #import "ConfigInfo.h"
 
+#if TARGET_IPHONE_SIMULATOR
+#define DEMO_HOST @"127.0.0.1"
+#else
+#define DEMO_HOST @"192.168.2.130"
+#endif
+
 @implementation ConfigInfo
 
 + (ConfigInfo*) sharedInstance {
@@ -70,17 +76,17 @@
 
 #pragma mark 开发环境 地址
 -(NSString *) devUrl {
-    return @"http://192.168.178.103:8081/";
+    return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
 }
 
 #pragma mark 公司测试 地址
 -(NSString *) debugUrl {
-    return @"http://192.168.178.103:8081/";
+    return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
 }
 
 #pragma mark 生产环境 地址
 -(NSString *) publishUrl {
-    return @"http://192.168.178.103:8081/";
+    return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
 }
 
 @end
