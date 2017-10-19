@@ -28,6 +28,9 @@
                     </div>
                 </div>
                 <!-- 快捷按钮 end -->
+                <div class="quick-btn-view" style="background-color: white">
+                </div>
+
                 <div class="quick-btn-view" style="background-color: red">
                 </div>
 
@@ -131,7 +134,6 @@ export default {
     left: 0;
     right: 0;
     height: 300px;
-    background-color: red;
 }
 
 .quickBg {

@@ -1,5 +1,6 @@
 package com.study.extend.module;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -44,13 +45,11 @@ public class WXEventModule extends WXModule {
         intent.setData(uri);
         intent.addCategory(WEEX_CATEGORY);
         mWXSDKInstance.getContext().startActivity(intent);
+    }
 
-//        if (mWXSDKInstance.checkModuleEventRegistered("event", this)) {
-//            HashMap<String,Object> params=new HashMap<>();
-//            params.put("param1","param1");
-//            params.put("param2","param2");
-//            params.put("param3","param3");
-//            mWXSDKInstance.fireModuleEvent("event", this, params);
-//        }
+    @JSMethod(uiThread = true)
+    public void popPage() {
+        Activity currentActivity = (Activity)mWXSDKInstance.getContext();
+        currentActivity.finish();
     }
 }

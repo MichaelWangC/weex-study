@@ -48,18 +48,6 @@ export default {
     naviBarLeftItemClick: function (e) {
       var event = weex.requireModule('event')
       event.popPage()
-
-      // 测试是否 本地存储是否删除
-      const storage = weex.requireModule('storage')
-      storage.getItem("hasLeftItem", function (e) {
-        var modal = weex.requireModule('modal')
-        modal.alert({
-            message: e.data,
-            duration: 0.3
-        }, function (value) {
-            console.log('alert callback', value)
-        })
-      })
     }
   }
 }
