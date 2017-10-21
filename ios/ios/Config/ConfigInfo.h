@@ -10,7 +10,6 @@
 
 typedef NS_ENUM(NSUInteger,ReleaseType)
 {
-    ReleaseTypeDefault,//公司测试
     ReleaseTypeDebug,//现场测试
     ReleaseTypePublish,//上生产
     ReleaseTypeDev//开发

@@ -12,6 +12,7 @@
       :rightItemSrc="rightItemSrc"
       :rightItemTitle="rightItemTitle"
       :rightItemColor="rightItemColor"
+      :showBackItem="showBackItem"
       @naviBarRightItemClick="naviBarRightItemClick"
       @naviBarLeftItemClick="naviBarLeftItemClick"
       ></navbar>
@@ -47,7 +48,7 @@
     },
     props: {
       dataRole: { default: 'navbar' },
-      backgroundColor: { default: 'black' },
+      backgroundColor: { default: '#3399ff' },
       height: { default: 88 },
       title: { default: "" },
       titleColor: { default: 'black' },
@@ -56,7 +57,8 @@
       rightItemColor: { default: 'black' },
       leftItemSrc: { default: '' },
       leftItemTitle: { default: '' },
-      leftItemColor: { default: 'black' }
+      leftItemColor: { default: 'black' },
+      showBackItem: {default: false}
     },
     methods: {
       naviBarRightItemClick: function (e) {

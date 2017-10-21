@@ -16,15 +16,15 @@
       class="right-image"
       v-on:click="onclickrightitem"></image>
     <text
-      v-if="!leftItemSrc"
+      v-if="!leftItemSrc && !showBackItem"
       naviItemPosition="left"
       :style="{ color: leftItemColor }"
       class="left-text"
       v-on:click="onclickleftitem">{{leftItemTitle}}</text>
     <image
-      v-if="leftItemSrc"
+      v-if="leftItemSrc || showBackItem"
       naviItemPosition="left"
-      :src="leftItemSrc"
+      :src="showBackItem?require('./images/icon_navbar_back.png'):leftItemSrc"
       class="left-image"
       v-on:click="onclickleftitem"></image>
     <text
@@ -89,7 +89,7 @@
     props: {
       dataRole: { default: 'navbar' },
       //导航条背景色
-      backgroundColor: { default: 'black' },
+      backgroundColor: { default: '#3399ff' },
       //导航条高度
       height: { default: 88 },
       //导航条标题 
@@ -107,7 +107,9 @@
       //左侧按钮标题
       leftItemTitle: { default: '' },
       //左侧按钮颜色
-      leftItemColor: { default: 'black' }
+      leftItemColor: { default: 'black' },
+      //左侧显示返回按钮
+      showBackItem: { default: false }
     },
     methods: {
       onclickrightitem: function (e) {

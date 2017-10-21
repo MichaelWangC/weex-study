@@ -1,5 +1,12 @@
 apply plugin: 'com.android.application'
 
+def props = new Properties()
+new File("./app/env.properties").withInputStream {
+    stream -> props.load(stream)
+}
+
+final RELEASE_TYPE = props.getProperty("release_type")
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -13,6 +20,12 @@ android {
     }
     buildTypes {
         release {
+            buildConfigField "String", "releaseType", "\"" + RELEASE_TYPE + "\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "String", "releaseType", "\"" + RELEASE_TYPE + "\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

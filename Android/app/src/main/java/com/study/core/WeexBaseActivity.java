@@ -7,6 +7,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.study.R;
+import com.study.config.ConfigInfo;
 
 public class WeexBaseActivity extends WeexAbsActivity {
 
@@ -26,7 +27,8 @@ public class WeexBaseActivity extends WeexAbsActivity {
         mUri = intent.getData();
 
         if (mUri == null) {
-            renderPageByURL("http://10.0.2.2:8081/dist/weex/index.js");
+            String homeUrl = ConfigInfo.getInstance().getHomeUrl();
+            renderPageByURL(homeUrl);
         } else {
             renderPageByURL(mUri.toString());
         }

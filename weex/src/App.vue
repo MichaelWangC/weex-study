@@ -2,7 +2,7 @@
   <div>
     <navpage dataRole="none" 
       :title="title" 
-      :leftItemSrc="hasLeftItem?leftItemSrc:''"
+      :showBackItem="showBackItem"
       backgroundColor="#3399ff" 
       titleColor="white" 
       @naviBarLeftItemClick="naviBarLeftItemClick">
@@ -25,7 +25,7 @@ export default {
     var _this = this
     storage.getItem("hasLeftItem", function (e) {
       if (e.data === "true") {
-        _this.hasLeftItem = true
+        _this.showBackItem = true
       }
       storage.removeItem("hasLeftItem")
     })
@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       title: '消息',
-      leftItemSrc: require('./modules/home/images/icon_home_message.png'),
+      showBackItem: false,
       src: "https://img.alicdn.com/tfs/TB1OOl1SVXXXXc_XVXXXXXXXXXX-340-340.png"
     }
   },

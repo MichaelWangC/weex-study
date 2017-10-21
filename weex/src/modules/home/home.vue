@@ -3,7 +3,6 @@
         <navpage dataRole="none" 
             :title="title" 
             :rightItemSrc="rightItemSrc" 
-            backgroundColor="#3399ff" 
             titleColor="white"
             @naviBarRightItemClick="naviBarRightItemClick">
             <!-- 内容 -->
@@ -28,16 +27,13 @@
                     </div>
                 </div>
                 <!-- 快捷按钮 end -->
-                <div class="quick-btn-view" style="background-color: white">
-                </div>
-
                 <div class="quick-btn-view" style="background-color: red">
                 </div>
 
-                <div class="quick-btn-view" style="background-color: blue">
+                <div class="quick-btn-view" style="background-color: green">
                 </div>
 
-                <div class="quick-btn-view" style="background-color: green">
+                <div class="quick-btn-view" style="background-color: blue">
                 </div>
 
             </scroller>
