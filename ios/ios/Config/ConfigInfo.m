@@ -74,6 +74,11 @@
     return url;
 }
 
+-(NSString *) urlRoot {
+    NSString *url = [NSString stringWithFormat:@"%@dist/weex/",[self urlBase]];
+    return url;
+}
+
 #pragma mark 开发环境 地址
 -(NSString *) devUrl {
     return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];

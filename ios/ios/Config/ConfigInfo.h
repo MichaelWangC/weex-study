@@ -23,5 +23,6 @@ typedef NS_ENUM(NSUInteger,ReleaseType)
 
 -(NSString *) urlBase;
 -(NSString *) urlHome;
+-(NSString *) urlRoot;
 
 @end

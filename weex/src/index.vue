@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import mytabbar from './components/tabbar.vue'
-import hello from './components/Hello.vue'
+import mytabbar from '@/components/tabbar.vue'
+import hello from '@/components/Hello.vue'
 
-var getBaseURL = require('./utils/base-url.js').getBaseURL
+var getBaseURL = require('@/utils/base-url.js').getBaseURL
 
 module.exports = {
   data: function() {
@@ -19,8 +19,8 @@ module.exports = {
           title: '首页',
           titleColor: '#000000',
           icon: '',
-          image: require('./images/home/icon_home_unselected.png'),
-          selectedImage: require('./images/home/icon_home_selected.png'),
+          image: require('@/images/tabbar/icon_home_unselected.png'),
+          selectedImage: require('@/images/tabbar/icon_home_selected.png'),
           src: 'modules/home/home.js',
           visibility: 'visible',
         },
@@ -29,8 +29,8 @@ module.exports = {
           title: '产品',
           titleColor: '#000000',
           icon: '',
-          image: require('./images/home/icon_product_unselected.png'),
-          selectedImage: require('./images/home/icon_product_selected.png'),
+          image: require('@/images/tabbar/icon_product_unselected.png'),
+          selectedImage: require('@/images/tabbar/icon_product_selected.png'),
           src: 'App.js',
           visibility: 'hidden',
         },
@@ -39,8 +39,8 @@ module.exports = {
           title: '我的',
           titleColor: '#000000',
           icon: '',
-          image: require('./images/home/icon_mine_unselected.png'),
-          selectedImage: require('./images/home/icon_mine_selected.png'),
+          image: require('@/images/tabbar/icon_mine_unselected.png'),
+          selectedImage: require('@/images/tabbar/icon_mine_selected.png'),
           src: 'App.js',
           visibility: 'hidden',
         }

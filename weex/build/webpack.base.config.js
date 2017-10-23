@@ -62,7 +62,12 @@ var baseConfig = {
   },
   plugins: [
     
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@': resolve('src'),
+    }
+  }
 }
 
 var webConfig = merge(baseConfig, {

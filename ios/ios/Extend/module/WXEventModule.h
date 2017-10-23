@@ -12,6 +12,7 @@
 
 @interface WXEventModule : NSObject <WXEventModuleProtocol, WXModuleProtocol>
 
--(void) popPage;
+-(void)openURL:(NSString *)url callback:(WXModuleCallback)callback;
+-(void)popPage;
 
 @end

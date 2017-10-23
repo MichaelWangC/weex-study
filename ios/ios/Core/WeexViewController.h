@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSURL *url;
 
+@property (nonatomic, copy) void (^onCreate)();
+
 @end

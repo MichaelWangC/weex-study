@@ -65,6 +65,9 @@
     };
     _instance.renderFinish = ^ (UIView *view) {
         //process renderFinish
+        if (weakSelf.onCreate) {
+            weakSelf.onCreate();
+        }
     };
     
     if (self.url == NULL) {

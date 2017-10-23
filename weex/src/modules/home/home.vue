@@ -42,14 +42,14 @@
 </template>
 
 <script>
-import quickbtn from '../../components/quickButton.vue'
-import navpage from '../../components/navpage.vue'
+import quickbtn from '@/components/quickButton.vue'
+import navpage from '@/components/navpage.vue'
 
 export default {
     data() {
         return {
             title: "首页",
-            rightItemSrc: require('./images/icon_home_message.png'),
+            rightItemSrc: require('@/images/home/icon_home_message.png'),
             imageList: [
                 {
                     src: 'http://seopic.699pic.com/photo/50035/8104.jpg_wh1200.jpg'
@@ -64,42 +64,42 @@ export default {
             quickBtns: [
                 [{
                     index: 1,
-                    icon: require('./images/icon_quick_private.png'),
+                    icon: require('@/images/home/icon_quick_private.png'),
                     title: '私募',
                     titleColor: '#000000'
                 }, {
                     index: 1,
-                    icon: require('./images/icon_quick_public.png'),
+                    icon: require('@/images/home/icon_quick_public.png'),
                     title: '公募',
                     titleColor: '#000000'
                 }, {
                     index: 1,
-                    icon: require('./images/icon_quick_insurance.png'),
+                    icon: require('@/images/home/icon_quick_insurance.png'),
                     title: '保险',
                     titleColor: '#000000'
                 }, {
                     index: 1,
-                    icon: require('./images/icon_quick_private.png'),
+                    icon: require('@/images/home/icon_quick_private.png'),
                     title: '公募',
                     titleColor: '#000000'
                 }], [{
                     index: 1,
-                    icon: require('./images/icon_quick_public.png'),
+                    icon: require('@/images/home/icon_quick_public.png'),
                     title: '公募',
                     titleColor: '#000000'
                 }, {
                     index: 1,
-                    icon: require('./images/icon_quick_private.png'),
+                    icon: require('@/images/home/icon_quick_private.png'),
                     title: '公募',
                     titleColor: '#000000'
                 }, {
                     index: 1,
-                    icon: require('./images/icon_quick_public.png'),
+                    icon: require('@/images/home/icon_quick_public.png'),
                     title: '公募',
                     titleColor: '#000000'
                 }, {
                     index: 1,
-                    icon: require('./images/icon_quick_private.png'),
+                    icon: require('@/images/home/icon_quick_private.png'),
                     title: '公募',
                     titleColor: '#000000'
                 }]]
@@ -112,9 +112,11 @@ export default {
     methods: {
         naviBarRightItemClick: function (params) {
             var event = weex.requireModule('event')
-            event.openURL("../../App.js?hasLeftItem=true")
-            const storage = weex.requireModule('storage')
-            storage.setItem("hasLeftItem", "true")
+            event.openURL("@/App.js?hasLeftItem=true", function (data) {
+                const bus = new BroadcastChannel("hasLeftItem")
+                bus.postMessage("true")
+                bus.close()
+            })
         }
     }
 }

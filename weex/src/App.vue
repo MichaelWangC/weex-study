@@ -21,14 +21,16 @@ import navpage from './components/navpage.vue'
 export default {
   name: 'app',
   created: function () {
-    const storage = weex.requireModule('storage')
-    var _this = this
-    storage.getItem("hasLeftItem", function (e) {
-      if (e.data === "true") {
+    let _this = this
+
+    console.log('============created============')
+    const bus = new BroadcastChannel("hasLeftItem")
+    bus.onmessage = function (event) {
+      if (event.data === "true") {
         _this.showBackItem = true
       }
-      storage.removeItem("hasLeftItem")
-    })
+      bus.close()
+    }
   },
   data() {
     return {
