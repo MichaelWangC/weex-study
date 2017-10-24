@@ -72,6 +72,14 @@ public class ConfigInfo {
     }
 
     /**
+     * 获取根路径 url
+     * @return
+     */
+    public String getRootUrl() {
+        return this.getBaseUrl() + "dist/weex/";
+    }
+
+    /**
      * 开发环境
      * @return
      */

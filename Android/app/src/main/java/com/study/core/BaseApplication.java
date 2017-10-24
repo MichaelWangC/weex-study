@@ -6,7 +6,7 @@ import com.study.extend.module.WXEventModule;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
 
-import com.study.extend.module.ImageAdapter;
+import com.study.extend.adapter.ImageAdapter;
 
 /**
  * Created by michael on 2017/10/13.

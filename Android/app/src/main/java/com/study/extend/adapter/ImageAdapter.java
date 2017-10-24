@@ -1,4 +1,4 @@
-package com.study.extend.module;
+package com.study.extend.adapter;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
