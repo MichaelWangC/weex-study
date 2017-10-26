@@ -10,7 +10,7 @@
 #import <WeexSDK/WXSDKInstance.h>
 #import "ConfigInfo.h"
 
-@interface WeexViewController ()
+@interface WeexViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIView *weexView;
 @property (nonatomic, strong) WXSDKInstance *instance;
@@ -39,7 +39,17 @@
     // 防止列表下移
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+//    self.additionalSafeAreaInsets = UIEdgeInsetsMake(-20, 0, 0, 0);
+    
     [self refreshWeex];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
 }
 
 -(void)dealloc {
@@ -77,6 +87,11 @@
     
     NSString *randomURL = [NSString stringWithFormat:@"%@%@random=%d",self.url.absoluteString,self.url.query?@"&":@"?",arc4random()];
     [_instance renderWithURL:[NSURL URLWithString:randomURL] options:@{@"bundleUrl":[self.url absoluteString]} data:nil];
+}
+
+#pragma mark UIGestureRecognizerDelegate
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return YES;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C23D5F61F9DE5BF00738F71 /* WXImgLoaderDefaultImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23D5F51F9DE5BF00738F71 /* WXImgLoaderDefaultImpl.m */; };
+		4C23D5F91FA1838300738F71 /* WXDeviceModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23D5F81FA1838300738F71 /* WXDeviceModule.m */; };
 		4C6936161F8DF0C90071448A /* WXEventModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6936151F8DF0C90071448A /* WXEventModule.m */; };
 		4C8F1CEE1F7F707D0090BFC5 /* WeexSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */; };
 		4C8F1CF61F7F8FBD0090BFC5 /* ConfigInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF51F7F8FBD0090BFC5 /* ConfigInfo.m */; };
@@ -28,6 +29,8 @@
 		2A4D552FCBA3DD5D30D6FA9F /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		4C23D5F41F9DE5BF00738F71 /* WXImgLoaderDefaultImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXImgLoaderDefaultImpl.h; sourceTree = "<group>"; };
 		4C23D5F51F9DE5BF00738F71 /* WXImgLoaderDefaultImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXImgLoaderDefaultImpl.m; sourceTree = "<group>"; };
+		4C23D5F71FA1838300738F71 /* WXDeviceModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXDeviceModule.h; sourceTree = "<group>"; };
+		4C23D5F81FA1838300738F71 /* WXDeviceModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXDeviceModule.m; sourceTree = "<group>"; };
 		4C69360E1F8B68460071448A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4C6936101F8B68690071448A /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		4C6936121F8B68770071448A /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -85,6 +88,8 @@
 			children = (
 				4C6936141F8DF0C90071448A /* WXEventModule.h */,
 				4C6936151F8DF0C90071448A /* WXEventModule.m */,
+				4C23D5F71FA1838300738F71 /* WXDeviceModule.h */,
+				4C23D5F81FA1838300738F71 /* WXDeviceModule.m */,
 			);
 			path = module;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				TargetAttributes = {
 					4CFEA77A1F7CAADA009CF5C9 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = SS5Y47H7JR;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -332,6 +338,7 @@
 				4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */,
 				4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */,
 				4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */,
+				4C23D5F91FA1838300738F71 /* WXDeviceModule.m in Sources */,
 				4C6936161F8DF0C90071448A /* WXEventModule.m in Sources */,
 				4C8F1CF61F7F8FBD0090BFC5 /* ConfigInfo.m in Sources */,
 				4C23D5F61F9DE5BF00738F71 /* WXImgLoaderDefaultImpl.m in Sources */,
@@ -460,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = SS5Y47H7JR;
 				GCC_PREFIX_HEADER = ios/PrefixHeader.pch;
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -476,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = SS5Y47H7JR;
 				GCC_PREFIX_HEADER = ios/PrefixHeader.pch;
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

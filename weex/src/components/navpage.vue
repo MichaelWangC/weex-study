@@ -40,7 +40,14 @@
       // iOS 导航栏 需要考虑状态栏的高度
       let platform = weex.config.env.platform
       if (platform === 'iOS') {
-        this.height = 140
+        // 判断是否为iPhone X
+        const device = weex.requireModule('device')
+        let deviceName = device.getDeviceName()
+        if (deviceName === "iPhoneX") {
+          this.height = 180
+        } else {
+          this.height = 160
+        }
       }
     },
     components: {
@@ -49,7 +56,7 @@
     props: {
       dataRole: { default: 'navbar' },
       backgroundColor: { default: '#3399ff' },
-      height: { default: 88 },
+      height: { default: 100 },
       title: { default: "" },
       titleColor: { default: 'black' },
       rightItemSrc: { default: '' },

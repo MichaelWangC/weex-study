@@ -45,7 +45,7 @@
   }
   .right-text {
     position: absolute; 
-    bottom: 28; 
+    bottom: 32; 
     right: 32; 
     text-align: right;
     font-size: 32;
@@ -53,34 +53,34 @@
   }
   .left-text {
     position: absolute; 
-    bottom: 28; 
+    bottom: 32; 
     left :32; 
     text-align :left;  
     font-size: 32;
     font-family: 'Open Sans', sans-serif;
   }
   .center-text {
-    position: absolute; 
-    bottom: 25; 
-    left: 172; 
+    position: absolute;
+    bottom: 28;
+    left: 172;
     right: 172;
-    text-align: center; 
-    font-size: 36; 
+    text-align: center;
+    font-size: 36;
     font-weight: bold;
   }
   .left-image {
     position: absolute; 
     bottom: 20; 
     left: 28; 
-    width: 50; 
-    height: 50;
+    width: 60; 
+    height: 60;
   }
   .right-image {
     position: absolute; 
     bottom: 20; 
     right: 28; 
-    width: 50; 
-    height: 50;
+    width: 60; 
+    height: 60;
   }
 </style>
 
@@ -91,7 +91,7 @@
       //导航条背景色
       backgroundColor: { default: '#3399ff' },
       //导航条高度
-      height: { default: 88 },
+      height: { default: 120 },
       //导航条标题 
       title: { default: '' },
       //导航条标题颜色

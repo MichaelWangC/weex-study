@@ -11,7 +11,7 @@
 #if TARGET_IPHONE_SIMULATOR
 #define DEMO_HOST @"127.0.0.1"
 #else
-#define DEMO_HOST @"192.168.2.130"
+#define DEMO_HOST @"192.168.2.135"
 #endif
 
 @implementation ConfigInfo

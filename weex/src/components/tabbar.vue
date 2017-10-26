@@ -5,10 +5,10 @@
       :src="item.src"
       :key="i"
       type="weex"
-      :style="{ visibility: item.visibility }"
+      :style="{ visibility: item.visibility, 'margin-bottom': height+bottom}"
       class="content"
       ></embed>
-    <div class="tabbar" append="tree">
+    <div class="tabbar" append="tree" :style="{ height: height, bottom: bottom }">
       <tabitem
         v-for="item in tabItems"
         :key="item.index"
@@ -38,15 +38,12 @@
     right: 0;
     bottom: 0;
     margin-top: 0;
-    margin-bottom: 120;
   }
   .tabbar {
     flex-direction: row;
     position: fixed;
-    bottom: 0;
     left: 0;
     right: 0;
-    height: 120;
   }
 </style>
 
@@ -60,7 +57,9 @@
     },
     data () {
       return {
-        selectedIndex: 0
+        selectedIndex: 0,
+        height: 120,
+        bottom: 0
       }
     },
     components: {
@@ -68,6 +67,18 @@
     },
     created: function () {
       this.select(this.selectedIndex);
+
+      let platform = weex.config.env.platform
+      if (platform === 'iOS') {
+        // 判断是否为iPhone X
+        const device = weex.requireModule('device')
+        let deviceName = device.getDeviceName()
+        if (deviceName === "iPhoneX") {
+          // 适配iPhone X tabbar
+          this.bottom = 40
+        }
+      }
+
     },
     methods: {
       tabItemOnClick: function (e) {

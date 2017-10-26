@@ -2,6 +2,7 @@ package com.study.core;
 
 import android.app.Application;
 
+import com.study.extend.module.WXDeviceModule;
 import com.study.extend.module.WXEventModule;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
@@ -18,8 +19,11 @@ public class BaseApplication extends Application {
         super.onCreate();
         InitConfig initConfig = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
         try {
+
             WXSDKEngine.initialize(this, initConfig);
             WXSDKEngine.registerModule("event", WXEventModule.class);
+            WXSDKEngine.registerModule("device", WXDeviceModule.class);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -22,8 +22,8 @@ export default {
   name: 'app',
   created: function () {
     let _this = this
-
-    console.log('============created============')
+    
+    // 数据获取
     const bus = new BroadcastChannel("hasLeftItem")
     bus.onmessage = function (event) {
       if (event.data === "true") {
