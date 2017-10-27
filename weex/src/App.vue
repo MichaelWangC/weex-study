@@ -18,19 +18,26 @@
 import hello from './components/Hello.vue'
 import navpage from './components/navpage.vue'
 
+let urlUtil = require('@/utils/url-util.js').urlUtil
+
 export default {
   name: 'app',
   created: function () {
-    let _this = this
     
-    // 数据获取
-    const bus = new BroadcastChannel("hasLeftItem")
-    bus.onmessage = function (event) {
-      if (event.data === "true") {
-        _this.showBackItem = true
-      }
-      bus.close()
+    let hasLeftItem = urlUtil.getQueryString("hasLeftItem")
+    console.log("================================="+hasLeftItem)
+    if (hasLeftItem === "true") {
+      this.showBackItem = true
     }
+
+    // 数据获取
+    // const bus = new BroadcastChannel("hasLeftItem")
+    // bus.onmessage = function (event) {
+    //   if (event.data === "true") {
+    //     _this.showBackItem = true
+    //   }
+    //   bus.close()
+    // }
   },
   data() {
     return {
@@ -42,9 +49,6 @@ export default {
   components: {
     hello,
     navpage
-  },
-  props: {
-    hasLeftItem: { default: false }
   },
   methods: {
     naviBarLeftItemClick: function (e) {

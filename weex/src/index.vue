@@ -8,7 +8,7 @@
 import mytabbar from '@/components/tabbar.vue'
 import hello from '@/components/Hello.vue'
 
-var getBaseURL = require('@/utils/base-url.js').getBaseURL
+let urlUtil = require('@/utils/url-util.js').urlUtil
 
 module.exports = {
   data: function() {
@@ -54,21 +54,13 @@ module.exports = {
   created: function() {
     for (var i = 0; i < this.tabItems.length; i++) {
       var tabItem = this.tabItems[i]
-      var baseURL = getBaseURL(tabItem.src)
+      var baseURL = urlUtil.getBaseURL(tabItem.src)
       tabItem.src = baseURL
     }
   },
   methods: {
     tabBarOnClick: function(e) {
       console.log('tabBarOnClick', e.index)
-    //   // 更改标题
-    //   if (e.index === 0) {
-    //     this.title = "首页"
-    //   } else if (e.index === 1) {
-    //     this.title = "产品"
-    //   } else if (e.index === 2) {
-    //     this.title = "我的"
-    //   }
     }
   }
 }

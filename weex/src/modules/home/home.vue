@@ -22,7 +22,8 @@
                             :index="item.index" 
                             :icon="item.icon" 
                             :title="item.title" 
-                            :titleColor="item.titleColor">
+                            :titleColor="item.titleColor"
+                            @quickBtnOnClick="quickBtnOnClick">
                         </quickbtn>
                     </div>
                 </div>
@@ -112,11 +113,11 @@ export default {
     methods: {
         naviBarRightItemClick: function (params) {
             var event = weex.requireModule('event')
-            event.openURL("@/App.js?hasLeftItem=true", function (data) {
-                const bus = new BroadcastChannel("hasLeftItem")
-                bus.postMessage("true")
-                bus.close()
-            })
+            event.openURL("@/App.js?hasLeftItem=true")
+        },
+        quickBtnOnClick: function (params) {
+            var event = weex.requireModule('event')
+            event.openURL("@/App.js?hasLeftItem=false")
         }
     }
 }
