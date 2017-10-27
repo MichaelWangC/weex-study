@@ -31,7 +31,7 @@ module.exports = {
           icon: '',
           image: require('@/images/tabbar/icon_product_unselected.png'),
           selectedImage: require('@/images/tabbar/icon_product_selected.png'),
-          src: 'App.js',
+          src: 'modules/product/productList.js',
           visibility: 'hidden',
         },
         {
