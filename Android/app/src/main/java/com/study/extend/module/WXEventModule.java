@@ -1,8 +1,6 @@
 package com.study.extend.module;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
@@ -12,6 +10,7 @@ import com.study.config.ConfigInfo;
 import com.study.core.WeexBaseActivity;
 import com.study.core.util.OnServiceCallBack;
 import com.study.core.util.ServiceCallBack;
+import com.study.utils.Keys;
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
@@ -62,8 +61,8 @@ public class WXEventModule extends WXModule {
         intent.addCategory(WEEX_CATEGORY);
 
         if (callback != null) {
-
-            intent.putExtra("sendRenderStatus", true);
+            // 查看是否存在回调函数
+            intent.putExtra(Keys.IS_CALLBACK_WEEX_RENDER_STATUS, true);
 
             final ServiceCallBack serviceCallBack = new ServiceCallBack();
             OnServiceCallBack onServiceCallBack = new OnServiceCallBack() {
@@ -75,8 +74,9 @@ public class WXEventModule extends WXModule {
             };
             serviceCallBack.setOnServiceCallBack(onServiceCallBack);
 
+            // 动态注册广播 在weex加载成功后 返回相应信息
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("com.study.core.util.ServiceCallBack");
+            intentFilter.addAction(ServiceCallBack.CALLBCAK_ACTION);
             mWXSDKInstance.getContext().registerReceiver(serviceCallBack, intentFilter);
         }
         mWXSDKInstance.getContext().startActivity(intent);

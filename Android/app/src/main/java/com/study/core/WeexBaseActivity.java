@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.study.R;
 import com.study.config.ConfigInfo;
+import com.study.core.util.ServiceCallBack;
+import com.study.utils.Keys;
 import com.taobao.weex.WXSDKInstance;
 
 public class WeexBaseActivity extends WeexAbsActivity {
@@ -28,7 +30,7 @@ public class WeexBaseActivity extends WeexAbsActivity {
         Intent intent = this.getIntent();
         mUri = intent.getData();
 
-        sendRenderStatus = this.getIntent().getBooleanExtra("sendRenderStatus", false);
+        sendRenderStatus = this.getIntent().getBooleanExtra(Keys.IS_CALLBACK_WEEX_RENDER_STATUS, false);
 
         if (mUri == null) {
             String homeUrl = ConfigInfo.getInstance().getHomeUrl();
@@ -43,8 +45,8 @@ public class WeexBaseActivity extends WeexAbsActivity {
         super.onRenderSuccess(instance, width, height);
         if (sendRenderStatus){
             Intent intent = new Intent();
-            intent.setAction("com.study.core.util.ServiceCallBack");
-            intent.putExtra("sendRenderStatus", "success");
+            intent.setAction(ServiceCallBack.CALLBCAK_ACTION);
+            intent.putExtra(Keys.WEEX_RENDER_STATUS, "success");
             intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
 
             WeexBaseActivity.this.sendBroadcast(intent);

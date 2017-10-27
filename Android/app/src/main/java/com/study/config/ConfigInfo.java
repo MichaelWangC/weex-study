@@ -84,6 +84,7 @@ public class ConfigInfo {
      * @return
      */
     private String devUrl() {
+//        return "http://192.168.2.135:8081/";
         return "http://10.0.2.2:8081/";
     }
 
