@@ -41,7 +41,7 @@ module.exports = {
           icon: '',
           image: require('@/images/tabbar/icon_mine_unselected.png'),
           selectedImage: require('@/images/tabbar/icon_mine_selected.png'),
-          src: 'App.js',
+          src: 'modules/mine/mine.js',
           visibility: 'hidden',
         }
       ],
