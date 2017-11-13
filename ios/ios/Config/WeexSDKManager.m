@@ -11,6 +11,7 @@
 #import "WXImgLoaderDefaultImpl.h"
 #import "WXEventModule.h"
 #import "WXDeviceModule.h"
+#import "WXLOTAnimationView.h"
 
 @implementation WeexSDKManager
 
@@ -25,6 +26,8 @@
     
     [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
     [WXSDKEngine registerModule:@"device" withClass:[WXDeviceModule class]];
+    
+    [WXSDKEngine registerComponent:@"animal" withClass:[WXLOTAnimationView class]];
     
 #ifdef DEBUG
     [WXLog setLogLevel:WXLogLevelLog];

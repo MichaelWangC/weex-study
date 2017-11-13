@@ -13,6 +13,8 @@
 		4C8F1CEE1F7F707D0090BFC5 /* WeexSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */; };
 		4C8F1CF61F7F8FBD0090BFC5 /* ConfigInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF51F7F8FBD0090BFC5 /* ConfigInfo.m */; };
 		4C8F1CF81F7F936C0090BFC5 /* env.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF71F7F936C0090BFC5 /* env.plist */; };
+		4CA34E831FB96A5C0059A993 /* WXLOTAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA34E821FB96A5C0059A993 /* WXLOTAnimationView.m */; };
+		4CA34E951FB9CB700059A993 /* Watermelon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CA34E931FB9CB700059A993 /* Watermelon.json */; };
 		4CFEA7801F7CAADB009CF5C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA77F1F7CAADB009CF5C9 /* main.m */; };
 		4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7821F7CAADB009CF5C9 /* AppDelegate.m */; };
 		4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7851F7CAADB009CF5C9 /* ViewController.m */; };
@@ -42,6 +44,9 @@
 		4C8F1CF41F7F8FBD0090BFC5 /* ConfigInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigInfo.h; sourceTree = "<group>"; };
 		4C8F1CF51F7F8FBD0090BFC5 /* ConfigInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigInfo.m; sourceTree = "<group>"; };
 		4C8F1CF71F7F936C0090BFC5 /* env.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = env.plist; sourceTree = "<group>"; };
+		4CA34E811FB96A5C0059A993 /* WXLOTAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLOTAnimationView.h; sourceTree = "<group>"; };
+		4CA34E821FB96A5C0059A993 /* WXLOTAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLOTAnimationView.m; sourceTree = "<group>"; };
+		4CA34E931FB9CB700059A993 /* Watermelon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Watermelon.json; sourceTree = "<group>"; };
 		4CFEA77B1F7CAADB009CF5C9 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFEA77F1F7CAADB009CF5C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFEA7811F7CAADB009CF5C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +99,31 @@
 			path = module;
 			sourceTree = "<group>";
 		};
+		4CA34E801FB96A0B0059A993 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				4CA34E811FB96A5C0059A993 /* WXLOTAnimationView.h */,
+				4CA34E821FB96A5C0059A993 /* WXLOTAnimationView.m */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		4CA34E901FB9CB660059A993 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				4CA34E911FB9CB660059A993 /* animals */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		4CA34E911FB9CB660059A993 /* animals */ = {
+			isa = PBXGroup;
+			children = (
+				4CA34E931FB9CB700059A993 /* Watermelon.json */,
+			);
+			path = animals;
+			sourceTree = "<group>";
+		};
 		4CFEA7721F7CAADA009CF5C9 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +145,7 @@
 		4CFEA77D1F7CAADB009CF5C9 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				4CA34E901FB9CB660059A993 /* assets */,
 				4CFEA7951F7CC49B009CF5C9 /* Config */,
 				4CFEA7961F7CC49B009CF5C9 /* Core */,
 				4CFEA7971F7CC49B009CF5C9 /* Extend */,
@@ -169,6 +200,7 @@
 		4CFEA7971F7CC49B009CF5C9 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				4CA34E801FB96A0B0059A993 /* component */,
 				4C23D5F31F9DE5BF00738F71 /* handler */,
 				4C8F1CEF1F7F7EC70090BFC5 /* module */,
 			);
@@ -265,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8F1CF81F7F936C0090BFC5 /* env.plist in Resources */,
+				4CA34E951FB9CB700059A993 /* Watermelon.json in Resources */,
 				4CFEA78E1F7CAADB009CF5C9 /* LaunchScreen.storyboard in Resources */,
 				4CFEA78B1F7CAADB009CF5C9 /* Assets.xcassets in Resources */,
 				4CFEA7891F7CAADB009CF5C9 /* Main.storyboard in Resources */,
@@ -337,6 +370,7 @@
 				4CFEA79E1F7CC609009CF5C9 /* WeexViewController.m in Sources */,
 				4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */,
 				4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */,
+				4CA34E831FB96A5C0059A993 /* WXLOTAnimationView.m in Sources */,
 				4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */,
 				4C23D5F91FA1838300738F71 /* WXDeviceModule.m in Sources */,
 				4C6936161F8DF0C90071448A /* WXEventModule.m in Sources */,
