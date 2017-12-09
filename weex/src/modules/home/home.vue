@@ -17,13 +17,13 @@
                 <!-- 快捷按钮 start -->
                 <div class="quick-btn-view">
                     <div v-for="(items,i) in quickBtns" v-bind:key="i" class="quickBg">
-                        <quickbtn v-for="item in items" 
+                        <quickbtn v-for="(i, item) in items" 
                             :key="item.index" 
                             :index="item.index" 
                             :icon="item.icon" 
                             :title="item.title" 
                             :titleColor="item.titleColor"
-                            @quickBtnOnClick="quickBtnOnClick">
+                            @quickBtnOnClick="quickBtnOnClick(i)">
                         </quickbtn>
                     </div>
                 </div>
@@ -115,7 +115,8 @@ export default {
             var event = weex.requireModule('event')
             event.openURL("@/App.js?hasLeftItem=true")
         },
-        quickBtnOnClick: function (params) {
+        quickBtnOnClick: function (clickIndex) {
+            console.log("=========")
             var event = weex.requireModule('event')
             event.openURL("@/App.js?hasLeftItem=false")
         }

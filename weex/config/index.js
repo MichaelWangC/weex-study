@@ -18,7 +18,7 @@ module.exports = {
   dev: {
     env: require('./dev.env'),
     clientPath: resolve('build/dev-client.js'),
-    port: 8081,
+    port: 8008,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     publicPath: '/dist/',

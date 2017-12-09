@@ -10,6 +10,7 @@
 #import <WeexSDK/WeexSDK.h>
 #import "WeexViewController.h"
 #import "WeexSDKManager.h"
+#import "MainTabbarController.h"
 
 @interface AppDelegate ()
 
@@ -26,8 +27,9 @@
     [WeexSDKManager setup];
     
     //
-    WeexViewController *viewC = [[WeexViewController alloc] init];
-    self.window.rootViewController = [[BaseNavViewController alloc] initWithRootViewController:viewC];
+//    WeexViewController *viewC = [[WeexViewController alloc] init];
+//    self.window.rootViewController = [[BaseNavViewController alloc] initWithRootViewController:viewC];
+    self.window.rootViewController = [[MainTabbarController alloc] init];
     [self.window makeKeyAndVisible];
     
     return YES;

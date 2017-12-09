@@ -61,7 +61,7 @@
                 url = [self publishUrl];
                 break;
             default:
-                url = @"http://192.168.178.103:8081/";
+                url = @"";
                 break;
         }
     });
@@ -81,17 +81,17 @@
 
 #pragma mark 开发环境 地址
 -(NSString *) devUrl {
-    return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
+    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
 }
 
 #pragma mark 公司测试 地址
 -(NSString *) debugUrl {
-    return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
+    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
 }
 
 #pragma mark 生产环境 地址
 -(NSString *) publishUrl {
-    return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
+    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
 }
 
 @end
