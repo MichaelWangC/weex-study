@@ -16,6 +16,10 @@
 		4C8F1CF81F7F936C0090BFC5 /* env.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C8F1CF71F7F936C0090BFC5 /* env.plist */; };
 		4CA34E831FB96A5C0059A993 /* WXLOTAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA34E821FB96A5C0059A993 /* WXLOTAnimationView.m */; };
 		4CA34E951FB9CB700059A993 /* Watermelon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CA34E931FB9CB700059A993 /* Watermelon.json */; };
+		4CDDB3F61FDD5168005657A9 /* HttpUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDDB3F51FDD5168005657A9 /* HttpUtil.m */; };
+		4CDDB3F81FDD5EB5005657A9 /* hybrid.js in Resources */ = {isa = PBXBuildFile; fileRef = 4CDDB3F71FDD5EB5005657A9 /* hybrid.js */; };
+		4CDDB3FB1FDD61A4005657A9 /* HybirdWebPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDDB3FA1FDD61A4005657A9 /* HybirdWebPage.m */; };
+		4CDDB3FE1FDD671E005657A9 /* HybridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDDB3FD1FDD671E005657A9 /* HybridViewController.m */; };
 		4CFEA7801F7CAADB009CF5C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA77F1F7CAADB009CF5C9 /* main.m */; };
 		4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7821F7CAADB009CF5C9 /* AppDelegate.m */; };
 		4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7851F7CAADB009CF5C9 /* ViewController.m */; };
@@ -50,6 +54,13 @@
 		4CA34E811FB96A5C0059A993 /* WXLOTAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXLOTAnimationView.h; sourceTree = "<group>"; };
 		4CA34E821FB96A5C0059A993 /* WXLOTAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLOTAnimationView.m; sourceTree = "<group>"; };
 		4CA34E931FB9CB700059A993 /* Watermelon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Watermelon.json; sourceTree = "<group>"; };
+		4CDDB3F41FDD5168005657A9 /* HttpUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpUtil.h; sourceTree = "<group>"; };
+		4CDDB3F51FDD5168005657A9 /* HttpUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpUtil.m; sourceTree = "<group>"; };
+		4CDDB3F71FDD5EB5005657A9 /* hybrid.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = hybrid.js; sourceTree = "<group>"; };
+		4CDDB3F91FDD61A4005657A9 /* HybirdWebPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HybirdWebPage.h; sourceTree = "<group>"; };
+		4CDDB3FA1FDD61A4005657A9 /* HybirdWebPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HybirdWebPage.m; sourceTree = "<group>"; };
+		4CDDB3FC1FDD671E005657A9 /* HybridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HybridViewController.h; sourceTree = "<group>"; };
+		4CDDB3FD1FDD671E005657A9 /* HybridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HybridViewController.m; sourceTree = "<group>"; };
 		4CFEA77B1F7CAADB009CF5C9 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFEA77F1F7CAADB009CF5C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFEA7811F7CAADB009CF5C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,6 +147,27 @@
 			path = animals;
 			sourceTree = "<group>";
 		};
+		4CDDB3F21FDD4DAA005657A9 /* webcore */ = {
+			isa = PBXGroup;
+			children = (
+				4CDDB3F71FDD5EB5005657A9 /* hybrid.js */,
+				4CDDB3F91FDD61A4005657A9 /* HybirdWebPage.h */,
+				4CDDB3FA1FDD61A4005657A9 /* HybirdWebPage.m */,
+				4CDDB3FC1FDD671E005657A9 /* HybridViewController.h */,
+				4CDDB3FD1FDD671E005657A9 /* HybridViewController.m */,
+			);
+			path = webcore;
+			sourceTree = "<group>";
+		};
+		4CDDB3F31FDD5137005657A9 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				4CDDB3F41FDD5168005657A9 /* HttpUtil.h */,
+				4CDDB3F51FDD5168005657A9 /* HttpUtil.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		4CFEA7721F7CAADA009CF5C9 = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +231,7 @@
 		4CFEA7961F7CC49B009CF5C9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4CDDB3F21FDD4DAA005657A9 /* webcore */,
 				4CFEA7991F7CC59A009CF5C9 /* BaseViewController.h */,
 				4CFEA79A1F7CC59A009CF5C9 /* BaseViewController.m */,
 				4CFEA79C1F7CC609009CF5C9 /* WeexViewController.h */,
@@ -223,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				4C4CF43A1FDBBD1E0002D789 /* front */,
+				4CDDB3F31FDD5137005657A9 /* util */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -313,6 +347,7 @@
 				4CA34E951FB9CB700059A993 /* Watermelon.json in Resources */,
 				4CFEA78E1F7CAADB009CF5C9 /* LaunchScreen.storyboard in Resources */,
 				4CFEA78B1F7CAADB009CF5C9 /* Assets.xcassets in Resources */,
+				4CDDB3F81FDD5EB5005657A9 /* hybrid.js in Resources */,
 				4CFEA7891F7CAADB009CF5C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +362,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ios/Pods-ios-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/WeexSDK/WeexSDK.framework/native-bundle-main.js",
 				"${PODS_ROOT}/WeexSDK/WeexSDK.framework/wx_load_error@3x.png",
 			);
@@ -381,11 +417,14 @@
 			files = (
 				4C8F1CEE1F7F707D0090BFC5 /* WeexSDKManager.m in Sources */,
 				4CFEA79E1F7CC609009CF5C9 /* WeexViewController.m in Sources */,
+				4CDDB3FE1FDD671E005657A9 /* HybridViewController.m in Sources */,
 				4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */,
 				4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */,
+				4CDDB3FB1FDD61A4005657A9 /* HybirdWebPage.m in Sources */,
 				4CA34E831FB96A5C0059A993 /* WXLOTAnimationView.m in Sources */,
 				4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */,
 				4C23D5F91FA1838300738F71 /* WXDeviceModule.m in Sources */,
+				4CDDB3F61FDD5168005657A9 /* HttpUtil.m in Sources */,
 				4C4CF43D1FDBBEA90002D789 /* MainTabbarController.m in Sources */,
 				4C6936161F8DF0C90071448A /* WXEventModule.m in Sources */,
 				4C8F1CF61F7F8FBD0090BFC5 /* ConfigInfo.m in Sources */,
