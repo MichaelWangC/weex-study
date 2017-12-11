@@ -10,7 +10,7 @@
 
 @interface HybridViewController : BaseViewController
 
-@property (nonatomic, assign) BOOL isHiddenNavBar;
+@property (nonatomic) BOOL isHiddenNavBar;
 
 -(void)loadPage:(NSString*)url withTitle:(NSString*)title;
 

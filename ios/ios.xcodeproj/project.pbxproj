@@ -10,6 +10,7 @@
 		4C23D5F61F9DE5BF00738F71 /* WXImgLoaderDefaultImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23D5F51F9DE5BF00738F71 /* WXImgLoaderDefaultImpl.m */; };
 		4C23D5F91FA1838300738F71 /* WXDeviceModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23D5F81FA1838300738F71 /* WXDeviceModule.m */; };
 		4C4760FB1FDE92AA0044FD01 /* HSJSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4760FA1FDE92AA0044FD01 /* HSJSONKit.m */; };
+		4C4760FE1FDEC2E00044FD01 /* UserUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4760FD1FDEC2E00044FD01 /* UserUtil.m */; };
 		4C4CF43D1FDBBEA90002D789 /* MainTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CF43C1FDBBEA90002D789 /* MainTabbarController.m */; };
 		4C6936161F8DF0C90071448A /* WXEventModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6936151F8DF0C90071448A /* WXEventModule.m */; };
 		4C8F1CEE1F7F707D0090BFC5 /* WeexSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1CED1F7F707D0090BFC5 /* WeexSDKManager.m */; };
@@ -41,6 +42,8 @@
 		4C23D5F81FA1838300738F71 /* WXDeviceModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXDeviceModule.m; sourceTree = "<group>"; };
 		4C4760F91FDE92AA0044FD01 /* HSJSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSJSONKit.h; sourceTree = "<group>"; };
 		4C4760FA1FDE92AA0044FD01 /* HSJSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSJSONKit.m; sourceTree = "<group>"; };
+		4C4760FC1FDEC2E00044FD01 /* UserUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserUtil.h; sourceTree = "<group>"; };
+		4C4760FD1FDEC2E00044FD01 /* UserUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserUtil.m; sourceTree = "<group>"; };
 		4C4CF43B1FDBBEA90002D789 /* MainTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabbarController.h; sourceTree = "<group>"; };
 		4C4CF43C1FDBBEA90002D789 /* MainTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabbarController.m; sourceTree = "<group>"; };
 		4C69360E1F8B68460071448A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -185,6 +188,8 @@
 			children = (
 				4CDDB3F41FDD5168005657A9 /* HttpUtil.h */,
 				4CDDB3F51FDD5168005657A9 /* HttpUtil.m */,
+				4C4760FC1FDEC2E00044FD01 /* UserUtil.h */,
+				4C4760FD1FDEC2E00044FD01 /* UserUtil.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 				4CFEA79E1F7CC609009CF5C9 /* WeexViewController.m in Sources */,
 				4C4760FB1FDE92AA0044FD01 /* HSJSONKit.m in Sources */,
 				4CDDB3FE1FDD671E005657A9 /* HybridViewController.m in Sources */,
+				4C4760FE1FDEC2E00044FD01 /* UserUtil.m in Sources */,
 				4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */,
 				4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */,
 				4CDDB3FB1FDD61A4005657A9 /* HybirdWebPage.m in Sources */,

@@ -29,4 +29,5 @@ typedef NS_ENUM(NSUInteger,ReleaseType)
 // Vue
 -(NSString *) urlVueBase;
 
+
 @end

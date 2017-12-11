@@ -20,9 +20,17 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // 导航栏初始化
+    [self setIsHiddenNavBar:_isHiddenNavBar];
 }
 
 -(void)setIsHiddenNavBar:(BOOL)isHiddenNavBar {
+    _isHiddenNavBar = isHiddenNavBar;
     if (isHiddenNavBar) {
         [self.navigationController setNavigationBarHidden:YES animated:NO];
     } else {

@@ -54,13 +54,13 @@
     dispatch_once(&onceToken, ^{
         switch (self.releaseType) {
             case ReleaseTypeDev: // 开发环境
-                url = [self devUrl];
+                url = [self devWeexUrl];
                 break;
             case ReleaseTypeDebug: // 测试
-                url = [self debugUrl];
+                url = [self debugWeexUrl];
                 break;
             case ReleaseTypePublish: // 生成
-                url = [self publishUrl];
+                url = [self publishWeexUrl];
                 break;
             default:
                 url = @"";
@@ -81,19 +81,61 @@
     return url;
 }
 
-#pragma mark 开发环境 地址
--(NSString *) devUrl {
+#pragma mark
+#pragma mark vue url
+-(NSString *) urlVueBase {
+    static NSString* url = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        switch (self.releaseType) {
+            case ReleaseTypeDev: // 开发环境
+                url = [self devVueUrl];
+                break;
+            case ReleaseTypeDebug: // 测试
+                url = [self debugVueUrl];
+                break;
+            case ReleaseTypePublish: // 生成
+                url = [self publishVueUrl];
+                break;
+            default:
+                url = @"";
+                break;
+        }
+    });
+    
+    return url;
+}
+
+#pragma mark weex 开发环境 地址
+-(NSString *) devWeexUrl {
     return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
 }
 
-#pragma mark 公司测试 地址
--(NSString *) debugUrl {
+#pragma mark weex 测试 地址
+-(NSString *) debugWeexUrl {
     return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
 }
 
-#pragma mark 生产环境 地址
--(NSString *) publishUrl {
+#pragma mark weex 生产环境 地址
+-(NSString *) publishWeexUrl {
     return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
+}
+
+#pragma mark
+#pragma mark vue 开发环境 地址
+-(NSString *) devVueUrl {
+    return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
+}
+
+#pragma mark vue 测试 地址
+-(NSString *) debugVueUrl {
+    return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
+}
+
+#pragma mark vue 生产环境 地址
+-(NSString *) publishVueUrl {
+    return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
 }
 
 @end
