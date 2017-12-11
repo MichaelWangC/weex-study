@@ -36,9 +36,6 @@
     // 返回按钮隐藏 weex处理导航栏
     [self.navigationController.view sendSubviewToBack:self.navigationController.navigationBar];
     
-    // 防止列表下移
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
 //    self.additionalSafeAreaInsets = UIEdgeInsetsMake(-20, 0, 0, 0);
     
     [self refreshWeex];
@@ -83,7 +80,7 @@
     };
     
     if (self.url == NULL) {
-        NSString *url = [[ConfigInfo sharedInstance] urlHome];
+        NSString *url = [[ConfigInfo sharedInstance] urlWeexHome];
         self.url = [NSURL URLWithString:url];
     }
     

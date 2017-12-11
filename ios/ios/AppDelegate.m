@@ -29,7 +29,8 @@
     //
 //    WeexViewController *viewC = [[WeexViewController alloc] init];
 //    self.window.rootViewController = [[BaseNavViewController alloc] initWithRootViewController:viewC];
-    self.window.rootViewController = [[MainTabbarController alloc] init];
+    MainTabbarController *main = [[MainTabbarController alloc] init];
+    self.window.rootViewController = [[BaseNavViewController alloc] initWithRootViewController:main];
     [self.window makeKeyAndVisible];
     
     return YES;

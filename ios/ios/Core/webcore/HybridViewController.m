@@ -18,10 +18,22 @@
 
 @implementation HybridViewController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+}
+
+-(void)setIsHiddenNavBar:(BOOL)isHiddenNavBar {
+    if (isHiddenNavBar) {
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+    } else {
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
+    }
+}
+
 -(void)loadPage:(NSString*)url withTitle:(NSString *)title{
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = title;
-    //    url = @"http://www.qq.com";
+//    url = @"http://www.qq.com";
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
 //    [configuration setHTTPAdditionalHeaders:@{@"User-Agent" : [[NSUserDefaults standardUserDefaults] stringForKey:@"UserAgent"]}];
@@ -51,13 +63,14 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
     }];
     
-    //    NSURL *URL = [NSURL URLWithString:@"http://httpbin.org/get"];
+//    NSURL *URL = [NSURL URLWithString:@"http://httpbin.org/get"];
+
+//    Accept = "*/*";
+//    "Accept-Encoding" = "gzip, deflate";
+//    "Accept-Language" = "en-us";
+//    Host = "httpbin.org";
+//    "User-Agent" = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_11_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12B411 MBP/1.0";
     
-    //    Accept = "*/*";
-    //    "Accept-Encoding" = "gzip, deflate";
-    //    "Accept-Language" = "en-us";
-    //    Host = "httpbin.org";
-    //    "User-Agent" = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_11_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12B411 MBP/1.0";
 }
 
 -(void)dealloc{

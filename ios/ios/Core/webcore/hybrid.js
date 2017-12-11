@@ -125,6 +125,10 @@
             sendMessage('hsmbp://request?request='+encodeURIComponent(JSON.stringify(request))+'&callback='+cbId);
           };
         };
+        /***************导航栏参数设置************/
+        hybrid.setNavBarsAppearance=function(params){
+          sendMessage('hsmbp://nav_bar_appear?params='+JSON.stringify(params));
+        };
 
 		return hybrid;
 	};

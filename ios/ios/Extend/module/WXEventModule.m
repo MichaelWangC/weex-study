@@ -26,7 +26,7 @@ WX_EXPORT_METHOD(@selector(popPage))
     if ([url hasPrefix:@"//"]) {
         newURL = [NSString stringWithFormat:@"http:%@", url];
     } else if ([url hasPrefix:@"@"]) {
-        NSString *urlRoot = [[ConfigInfo sharedInstance] urlRoot];
+        NSString *urlRoot = [[ConfigInfo sharedInstance] urlWeexRoot];
         url = [url substringFromIndex:1];
         newURL = [NSString stringWithFormat:@"%@%@", urlRoot, url];
     } else if (![url hasPrefix:@"http"]) {

@@ -7,6 +7,8 @@
 //
 
 #import "HybirdWebPage.h"
+#import "HSJSONKit.h"
+#import "HybridViewController.h"
 
 @interface HybridUIWebView : UIWebView
 
@@ -36,6 +38,11 @@
         [self addSubview:_uiWebView];
         [_uiWebView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
         
+        if (@available(iOS 11.0, *)) {
+            _uiWebView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            // Fallback on earlier versions
+        }
         // 设置这个属性，如果在加载的网页中遇到电话号码，直接单击就可以拨打，非常方便
         _uiWebView.dataDetectorTypes = UIDataDetectorTypeNone;
     }
@@ -44,6 +51,45 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     if([request.URL.absoluteString hasPrefix:@"hsmbp://"]){
+        /******************页面跳转*********************/
+        if([request.URL.absoluteString hasPrefix:@"hsmbp://close"]){
+            if([_viewController isKindOfClass:[BaseViewController class]]){
+                [(BaseViewController*)self.viewController dismissViewControllerAnimated:YES];
+            }else{
+                [self.viewController dismissViewControllerAnimated:YES completion:nil];
+            }
+        } else if([request.URL.absoluteString hasPrefix:@"hsmbp://open"]){
+            NSString* dataStr = [self valueForKey:@"data" inURL:request.URL.absoluteString];
+            dataStr = [dataStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary* data = [dataStr objectFromJSONString];
+            NSString* url = [data objectForKey:@"url"];
+            if (!url) {
+                NSLog(@"WARN:invalid url for new page!");
+                return NO;
+            }
+            HybridViewController* vc = [HybridViewController new];
+            
+//            NSString* requestcode = [data objectForKey:@"requestcode"];
+//            if(requestcode){
+//                __weak UIWebView* webViewRef = webView;
+//                [vc setResultCallback:^(int requestcode, int resultcode, NSDictionary *data) {
+//                    [webViewRef stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"hybrid.onResult(%d,%d,%@)",requestcode,resultcode,[data JSONString]]];
+//                } forRequest:[requestcode intValue]];
+//            }
+            
+            [vc loadPage:url withTitle:[data objectForKey:@"title"]];
+            [self.viewController.navigationController pushViewController:vc animated:YES];
+        } else if ([request.URL.absoluteString hasPrefix:@"hsmbp://nav_bar_appear"]) {
+            NSDictionary* params = [[self valueForKey:@"params" inURL:request.URL.absoluteString] objectFromJSONString];
+            NSString *isHiddenNavBar = [params objectForKey:@"isHiddenNavBar"];
+            if ([_viewController isKindOfClass:[HybridViewController class]]) {
+                if ([isHiddenNavBar isEqualToString:@"true"]) {
+                    ((HybridViewController *)_viewController).isHiddenNavBar = YES;
+                } else {
+                    ((HybridViewController *)_viewController).isHiddenNavBar = NO;
+                }
+            }
+        }
     }
     return YES;
 }

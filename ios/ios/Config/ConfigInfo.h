@@ -21,8 +21,12 @@ typedef NS_ENUM(NSUInteger,ReleaseType)
 
 +(instancetype) sharedInstance;
 
--(NSString *) urlBase;
--(NSString *) urlHome;
--(NSString *) urlRoot;
+// Weex
+-(NSString *) urlWeexBase;
+-(NSString *) urlWeexHome;
+-(NSString *) urlWeexRoot;
+
+// Vue
+-(NSString *) urlVueBase;
 
 @end

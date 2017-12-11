@@ -15,9 +15,14 @@
 
 @implementation MainTabbarController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.view.clipsToBounds = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     self.tabBar.translucent=NO;
@@ -27,7 +32,7 @@
     firstController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_tabbar_mine_selected"];
     firstController.tabBarItem.image = [UIImage imageNamed:@"icon_tabbar_mine"];
     firstController.tabBarItem.title = @"我的";
-    [firstController loadPage:@"http://localhost:8080/#/mineInfo" withTitle:@"我的"];
+    [firstController loadPage:@"http://localhost:8081/#/mineInfo" withTitle:@"我的"];
     
     UIViewController *robotController = [[UIViewController alloc] init];
     robotController.tabBarItem.image = [[UIImage imageNamed:@"icon_tabbar_robot"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -36,7 +41,7 @@
     secondController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_tabbar_home_selected"];
     secondController.tabBarItem.image = [UIImage imageNamed:@"icon_tabbar_home"];
     secondController.tabBarItem.title = @"首页";
-    [secondController loadPage:@"http://localhost:8080/#/homePage" withTitle:@"首页"];
+    [secondController loadPage:@"http://localhost:8081/#/mainPage" withTitle:@"首页"];
     
     [self addItemController:secondController toTabBarController:self];
     [self addItemController:robotController toTabBarController:self];
@@ -45,7 +50,7 @@
 
 -(void)addItemController:(UIViewController*)itemController toTabBarController:(UITabBarController*)tab{
     if ([itemController isKindOfClass:[BaseViewController class]]) {
-        UINavigationController* nav = [[BaseNavViewController alloc] initWithRootViewController:itemController];
+        BaseNavViewController * nav = [[BaseNavViewController alloc] initWithRootViewController:itemController];
         [tab addChildViewController:nav];
     } else {
         //中间的 机器人按钮; 通过是否为BaseNavViewController 进行控制
@@ -59,9 +64,22 @@
         return YES;
     }else{
         //中间的 机器人按钮;
+        HybridViewController *secondController = [[HybridViewController alloc] init];
+        secondController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_tabbar_home_selected"];
+        secondController.tabBarItem.image = [UIImage imageNamed:@"icon_tabbar_home"];
+        secondController.tabBarItem.title = @"首页";
+        [secondController loadPage:@"http://localhost:8081/#/mainPage" withTitle:@"首页"];
+        
+        [self.navigationController pushViewController:secondController animated:YES];
+        
         NSLog(@"机器人按钮点击");
         return NO;
     }
+}
+
+#pragma mark StatusBar
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

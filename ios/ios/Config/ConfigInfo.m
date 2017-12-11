@@ -45,7 +45,9 @@
     return sharedObj;
 }
 
--(NSString *) urlBase {
+#pragma mark
+#pragma mark weex url
+-(NSString *) urlWeexBase {
     static NSString* url = nil;
     
     static dispatch_once_t onceToken;
@@ -69,13 +71,13 @@
     return url;
 }
 
--(NSString *) urlHome {
-    NSString *url = [NSString stringWithFormat:@"%@dist/weex/index.js",[self urlBase]];
+-(NSString *) urlWeexHome {
+    NSString *url = [NSString stringWithFormat:@"%@dist/weex/index.js",[self urlWeexBase]];
     return url;
 }
 
--(NSString *) urlRoot {
-    NSString *url = [NSString stringWithFormat:@"%@dist/weex/",[self urlBase]];
+-(NSString *) urlWeexRoot {
+    NSString *url = [NSString stringWithFormat:@"%@dist/weex/",[self urlWeexBase]];
     return url;
 }
 
