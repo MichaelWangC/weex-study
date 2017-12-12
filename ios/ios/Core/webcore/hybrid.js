@@ -98,25 +98,12 @@
         hybrid.request=function(settings,callback){
           var request = {};
           request.url = settings.url;
-          if(settings.type !== undefined) {
-            request.type = settings.type;
+          if(settings.method !== undefined) {
+            request.type = settings.method;
           }
           if(settings.data !== undefined) {
             request.data = settings.data;
           }
-          if (request.url.indexOf('http') !=0) {
-            if(request.url.indexOf('/') == 0){
-                var port = window.location.port;
-                request.url = window.location.protocol+'//'+window.location.hostname+((''===port)?'':':')+port+request.url;
-            }else{
-                var baseUrl = window.location.href.replace(/\?.*/,'');
-                var index = baseUrl.lastIndexOf('/');
-                if(index!=-1){
-                    baseUrl = baseUrl.substring(0, index+1);
-                }
-                request.url = baseUrl+request.url;
-            }
-          };
           if(typeof(callback)==='undefined'){
             sendMessage('hsmbp://request?request='+encodeURIComponent(JSON.stringify(request)));
           }else{
@@ -128,6 +115,24 @@
         /***************导航栏参数设置************/
         hybrid.setNavBarsAppearance=function(params){
           sendMessage('hsmbp://nav_bar_appear?params='+JSON.stringify(params));
+        };
+        /***************打开原生界面************/
+        hybrid.openNaviPage=function(params){
+          sendMessage('hsmbp://openNaviPage?params='+JSON.stringify(params));
+        };
+        /***************保存用户信息************/
+        hybrid.commitUserData=function(key,value){
+          sendMessage('hsmbp://commitUserData?key='+key+'&value='+value);
+        };
+        /***************获取用户信息************/
+        hybrid.getUserData=function(key, callback){
+          if(typeof(callback)==='undefined'){
+            sendMessage('hsmbp://getUserData?key='+key);
+          }else{
+              var cbId = callbackid++;
+              callbackMethods[cbId] = callback;
+              sendMessage('hsmbp://getUserData?key='+key+'&callback='+cbId);
+          };
         };
 
 		return hybrid;

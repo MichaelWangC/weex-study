@@ -46,6 +46,32 @@
 }
 
 #pragma mark
+#pragma mark api url
+-(NSString *) urlApiBase {
+    static NSString* url = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        switch (self.releaseType) {
+            case ReleaseTypeDev: // 开发环境
+                url = [self devApiUrl];
+                break;
+            case ReleaseTypeDebug: // 测试
+                url = [self debugApiUrl];
+                break;
+            case ReleaseTypePublish: // 生成
+                url = [self publishApiUrl];
+                break;
+            default:
+                url = @"";
+                break;
+        }
+    });
+    
+    return url;
+}
+
+#pragma mark
 #pragma mark weex url
 -(NSString *) urlWeexBase {
     static NSString* url = nil;
@@ -107,6 +133,21 @@
     return url;
 }
 
+#pragma mark
+#pragma mark api 地址
+-(NSString *) devApiUrl {
+    return [NSString stringWithFormat:@"http://192.168.225.35:8088/front/"];
+}
+
+-(NSString *) debugApiUrl {
+    return [NSString stringWithFormat:@"http://192.168.225.35:8088/front/"];
+}
+
+-(NSString *) publishApiUrl {
+    return [NSString stringWithFormat:@"http://192.168.225.35:8088/front/"];
+}
+
+#pragma mark
 #pragma mark weex 开发环境 地址
 -(NSString *) devWeexUrl {
     return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];

@@ -30,8 +30,8 @@
     self.delegate = self;
     
     HybridViewController *secondController = [[HybridViewController alloc] init];
-    secondController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_tabbar_home_selected"];
-    secondController.tabBarItem.image = [UIImage imageNamed:@"icon_tabbar_home"];
+    secondController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_tabbar_home_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    secondController.tabBarItem.image = [[UIImage imageNamed:@"icon_tabbar_home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     secondController.tabBarItem.title = @"首页";
     secondController.isHiddenNavBar = YES;
     NSString *mainUrl = [NSString stringWithFormat:@"%@/#/mainPage", [[ConfigInfo sharedInstance] urlVueBase]];
@@ -41,8 +41,8 @@
     robotController.tabBarItem.image = [[UIImage imageNamed:@"icon_tabbar_robot"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     HybridViewController *firstController = [[HybridViewController alloc] init];
-    firstController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_tabbar_mine_selected"];
-    firstController.tabBarItem.image = [UIImage imageNamed:@"icon_tabbar_mine"];
+    firstController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_tabbar_mine_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    firstController.tabBarItem.image = [[UIImage imageNamed:@"icon_tabbar_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     firstController.tabBarItem.title = @"我的";
     NSString *mineUrl = [NSString stringWithFormat:@"%@/#/mineInfo", [[ConfigInfo sharedInstance] urlVueBase]];
     [firstController loadPage:mineUrl withTitle:@"我的"];

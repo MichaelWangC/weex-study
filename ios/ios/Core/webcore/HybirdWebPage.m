@@ -9,6 +9,10 @@
 #import "HybirdWebPage.h"
 #import "HSJSONKit.h"
 #import "HybridViewController.h"
+#import "HttpUtil.h"
+
+#import "UserUtil.h"
+#import "MainTabbarController.h"
 
 @interface HybridUIWebView : UIWebView
 
@@ -50,15 +54,26 @@
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    if([request.URL.absoluteString hasPrefix:@"hsmbp://"]){
-        /******************页面跳转*********************/
-        if([request.URL.absoluteString hasPrefix:@"hsmbp://close"]){
+    NSString *requestURL = request.URL.absoluteString;
+    if([requestURL hasPrefix:@"hsmbp://"]){
+        /******************页面关闭*********************/
+        if([requestURL hasPrefix:@"hsmbp://close"]){
             if([_viewController isKindOfClass:[BaseViewController class]]){
                 [(BaseViewController*)self.viewController dismissViewControllerAnimated:YES];
             }else{
                 [self.viewController dismissViewControllerAnimated:YES completion:nil];
             }
-        } else if([request.URL.absoluteString hasPrefix:@"hsmbp://open"]){
+        }
+        /********************跳转导航到本地原生界面***********************/
+        else if ([requestURL hasPrefix:@"hsmbp://openNaviPage"]) {
+            // 先打开主界面 后续考虑 使用原生router进行页面跳转控制
+            MainTabbarController *tabbar = [[MainTabbarController alloc] init];
+            [self.viewController.rt_navigationController pushViewController:tabbar animated:YES complete:^(BOOL finished) {
+                [self.viewController.rt_navigationController removeViewController:self.viewController];
+            }];
+        }
+        /******************页面跳转*********************/
+        else if([requestURL hasPrefix:@"hsmbp://open"]){
             NSString* dataStr = [self valueForKey:@"data" inURL:request.URL.absoluteString];
             dataStr = [dataStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSDictionary* data = [dataStr objectFromJSONString];
@@ -79,7 +94,28 @@
             
             [vc loadPage:url withTitle:[data objectForKey:@"title"]];
             [self.viewController.navigationController pushViewController:vc animated:YES];
-        } else if ([request.URL.absoluteString hasPrefix:@"hsmbp://nav_bar_appear"]) {
+        }
+        /********************保存用户数据***********************/
+        else if ([requestURL hasPrefix:@"hsmbp://commitUserData"]) {
+            NSString* key = [self valueForKey:@"key" inURL:request.URL.absoluteString];
+            NSString* value = [self valueForKey:@"value" inURL:request.URL.absoluteString];
+            [[UserUtil sharedInstance] saveValueByKey:key value:value];
+        }
+        /********************获取用户数据***********************/
+        else if ([requestURL hasPrefix:@"hsmbp://getUserData"]) {
+            NSString* key = [self valueForKey:@"key" inURL:request.URL.absoluteString];
+            NSString* callbackId = [self valueForKey:@"callback" inURL:request.URL.absoluteString];
+            
+            if (callbackId) {
+                id jsonData = [[UserUtil sharedInstance] getValueByKey:key];
+                if ([jsonData isKindOfClass:[NSString class]]) {
+                    NSString* data = jsonData;
+                    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"hybrid.handle(%@,%@)",callbackId, data]];
+                }
+            };
+        }
+        /********************nav_bar_appear***********************/
+        else if ([requestURL hasPrefix:@"hsmbp://nav_bar_appear"]) {
             NSDictionary* params = [[self valueForKey:@"params" inURL:request.URL.absoluteString] objectFromJSONString];
             NSString *isHiddenNavBar = [params objectForKey:@"isHiddenNavBar"];
             if ([_viewController isKindOfClass:[HybridViewController class]]) {
@@ -88,6 +124,66 @@
                 } else {
                     ((HybridViewController *)_viewController).isHiddenNavBar = NO;
                 }
+            }
+        }
+        /********************Request***********************/
+        else if([requestURL hasPrefix:@"hsmbp://request"]){
+            NSString* requestStr = [self valueForKey:@"request" inURL:request.URL.absoluteString];
+            requestStr = [requestStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary* requestParams = [requestStr objectFromJSONString];
+            NSString* callbackId = [self valueForKey:@"callback" inURL:request.URL.absoluteString];
+            
+            NSString *url = (NSString*)[requestParams objectForKey:@"url"];
+            NSString *apiBaseUrl = [[ConfigInfo sharedInstance] urlApiBase];
+            url = [NSString stringWithFormat:@"%@%@", apiBaseUrl, url];
+            
+//            if (request.url.indexOf('http') !=0) {
+//                if(request.url.indexOf('/') == 0){
+//                    var port = window.location.port;
+//                    request.url = window.location.protocol+'//'+window.location.hostname+((''===port)?'':':')+port+request.url;
+//                }else{
+//                    var baseUrl = window.location.href.replace(/\?.*/,'');
+//                    var index = baseUrl.lastIndexOf('/');
+//                    if(index!=-1){
+//                        baseUrl = baseUrl.substring(0, index+1);
+//                    }
+//                    request.url = baseUrl+request.url;
+//                }
+//            };
+            
+            __weak UIWebView* webViewRef = webView;
+            if ([@"post" isEqualToString:[(NSString*)[requestParams objectForKey:@"type"] lowercaseString]]) {
+                [HttpUtil postAsynchronousWithURL:url data:[requestParams objectForKey:@"data"] successHandler:^(NSData *data) {
+                    if (callbackId) {
+                        id jsonData = data;
+                        if ([jsonData isKindOfClass:[NSArray class]]||[jsonData isKindOfClass:[NSDictionary class]]||[jsonData isKindOfClass:[NSString class]]) {
+                            NSString* data = [jsonData JSONString];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [webViewRef stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"hybrid.handle(%@,%@)",callbackId, data]];
+                            });
+                        }
+                    };
+                } errorHandler:^(NSError *error) {
+                    NSLog(@"web request error : %@", error);
+                }];
+            } else {
+                NSDictionary* data = [requestParams objectForKey:@"data"];
+                if (data){
+                    if([url rangeOfString:@"?"].length==0){
+                        url = [url stringByAppendingString:@"?1=1"];
+                    }
+                    for (NSString* key in [data allKeys]) {
+                        url = [url stringByAppendingFormat:@"&%@=%@",key, [data objectForKey:key]];
+                    }
+                }
+                [HttpUtil getAsynchronous:url successHandler:^(NSData *data) {
+                    if (callbackId) {
+                        id jsonData = [data objectFromJSONData];
+                        [webViewRef stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"hybrid.handle(%@,%@)",callbackId,[jsonData JSONString]]];
+                    };
+                } errorHandler:^(NSError *error) {
+                    NSLog(@"web request error : %@", error);
+                }];
             }
         }
     }

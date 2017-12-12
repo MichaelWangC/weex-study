@@ -10,4 +10,12 @@
 
 @interface HttpUtil : NSObject
 
++(void)getAsynchronous:(NSString*)finalURL
+        successHandler:(void(^)(NSData *data)) successHandler
+          errorHandler:(void(^)(NSError *error)) errorHandler;
+
++(void)postAsynchronousWithURL:(NSString*)finalURL data:(NSDictionary*)postData
+                successHandler:(void(^)(NSData *data)) successHandler
+                  errorHandler:(void(^)(NSError *error)) errorHandler;
+
 @end

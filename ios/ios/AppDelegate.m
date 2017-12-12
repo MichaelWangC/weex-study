@@ -11,6 +11,7 @@
 #import "WeexViewController.h"
 #import "WeexSDKManager.h"
 #import "MainTabbarController.h"
+#import "NavigationViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,11 +27,13 @@
     
     [WeexSDKManager setup];
     
-    //
 //    WeexViewController *viewC = [[WeexViewController alloc] init];
-//    self.window.rootViewController = [[BaseNavViewController alloc] initWithRootViewController:viewC];
-    MainTabbarController *main = [[MainTabbarController alloc] init];
-    self.window.rootViewController = [[BaseNavViewController alloc] initWithRootViewController:main];
+//    MainTabbarController *main = [[MainTabbarController alloc] init];
+//    HybridViewController *hybrid = [[HybridViewController alloc] init];
+    
+    NavigationViewController *navigation = [[NavigationViewController alloc] init];
+    
+    self.window.rootViewController = [[BaseNavViewController alloc] initWithRootViewController:navigation];
     [self.window makeKeyAndVisible];
     
     return YES;

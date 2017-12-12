@@ -11,11 +11,11 @@
 
 NSString * const KEY_USER = @"com.user";
 
-NSString * const KEY_USERCODE = @"com.usercode";
-NSString * const KEY_PASSWORD = @"com.password";
-NSString * const KEY_USERNAME = @"com.userName";
-NSString * const KEY_IDENTITYNO = @"com.identityNo";
-NSString * const KEY_IDENTITYTYPE = @"com.identityType";
+NSString * const KEY_USERCODE = @"usercode";
+NSString * const KEY_PASSWORD = @"password";
+NSString * const KEY_USERNAME = @"UserName";
+NSString * const KEY_IDENTITYNO = @"IdentityNo";
+NSString * const KEY_IDENTITYTYPE = @"IdentityType";
 
 @implementation UserUtil
 
@@ -25,7 +25,7 @@ NSString * const KEY_IDENTITYTYPE = @"com.identityType";
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         sharedObj = [[UserUtil alloc] init];
-//        [sharedObj loadData];
+        [sharedObj loadData];
     });
     return sharedObj;
 }
@@ -42,6 +42,20 @@ NSString * const KEY_IDENTITYTYPE = @"com.identityType";
     [usernamepasswordKVPairs setObject:self.userName forKey:KEY_USERNAME];
     [usernamepasswordKVPairs setObject:self.identityNo forKey:KEY_IDENTITYNO];
     [usernamepasswordKVPairs setObject:self.identityType forKey:KEY_IDENTITYTYPE];
+    [UserUtil save:KEY_USER data:usernamepasswordKVPairs];
+}
+
+-(NSString *)getValueByKey:(NSString *)key {
+    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserUtil load:KEY_USER];
+    return [usernamepasswordKVPairs objectForKey:key];
+}
+
+-(void)saveValueByKey:(NSString *)key value:(NSString *)value {
+    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserUtil load:KEY_USER];
+    if (usernamepasswordKVPairs == nil) {
+        usernamepasswordKVPairs = [NSMutableDictionary dictionary];
+    }
+    [usernamepasswordKVPairs setObject:value forKey:key];
     [UserUtil save:KEY_USER data:usernamepasswordKVPairs];
 }
 

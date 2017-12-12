@@ -22,4 +22,7 @@
 // 判断是否登录过
 -(BOOL)isLogin;
 
+-(NSString *)getValueByKey:(NSString *)key;
+-(void)saveValueByKey:(NSString *)key value:(NSString *)value;
+
 @end

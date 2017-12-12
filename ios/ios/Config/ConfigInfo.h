@@ -21,6 +21,9 @@ typedef NS_ENUM(NSUInteger,ReleaseType)
 
 +(instancetype) sharedInstance;
 
+// API
+-(NSString *) urlApiBase;
+
 // Weex
 -(NSString *) urlWeexBase;
 -(NSString *) urlWeexHome;
