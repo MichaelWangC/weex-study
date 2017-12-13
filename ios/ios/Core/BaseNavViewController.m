@@ -29,9 +29,7 @@
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
         [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],//文字字体颜色
                                                                NSFontAttributeName:[UIFont systemFontOfSize:18]//文字字体大小
-                                                               }];
-        
-        self.useSystemBackBarButtonItem = YES;
+                                                               }];        
     }
     return self;
 }

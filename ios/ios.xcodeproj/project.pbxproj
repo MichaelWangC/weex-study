@@ -25,7 +25,6 @@
 		4CDDB3FE1FDD671E005657A9 /* HybridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDDB3FD1FDD671E005657A9 /* HybridViewController.m */; };
 		4CFEA7801F7CAADB009CF5C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA77F1F7CAADB009CF5C9 /* main.m */; };
 		4CFEA7831F7CAADB009CF5C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7821F7CAADB009CF5C9 /* AppDelegate.m */; };
-		4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA7851F7CAADB009CF5C9 /* ViewController.m */; };
 		4CFEA78B1F7CAADB009CF5C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEA78A1F7CAADB009CF5C9 /* Assets.xcassets */; };
 		4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA79A1F7CC59A009CF5C9 /* BaseViewController.m */; };
 		4CFEA79E1F7CC609009CF5C9 /* WeexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEA79D1F7CC609009CF5C9 /* WeexViewController.m */; };
@@ -72,8 +71,6 @@
 		4CFEA77F1F7CAADB009CF5C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CFEA7811F7CAADB009CF5C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4CFEA7821F7CAADB009CF5C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4CFEA7841F7CAADB009CF5C9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4CFEA7851F7CAADB009CF5C9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4CFEA78A1F7CAADB009CF5C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CFEA78F1F7CAADB009CF5C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CFEA7991F7CC59A009CF5C9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -223,8 +220,6 @@
 				4CFEA7981F7CC49B009CF5C9 /* Source */,
 				4CFEA7811F7CAADB009CF5C9 /* AppDelegate.h */,
 				4CFEA7821F7CAADB009CF5C9 /* AppDelegate.m */,
-				4CFEA7841F7CAADB009CF5C9 /* ViewController.h */,
-				4CFEA7851F7CAADB009CF5C9 /* ViewController.m */,
 				4CFEA78A1F7CAADB009CF5C9 /* Assets.xcassets */,
 				4CFEA78F1F7CAADB009CF5C9 /* Info.plist */,
 				4CFEA77E1F7CAADB009CF5C9 /* Supporting Files */,
@@ -443,7 +438,6 @@
 				4C4760FB1FDE92AA0044FD01 /* HSJSONKit.m in Sources */,
 				4CDDB3FE1FDD671E005657A9 /* HybridViewController.m in Sources */,
 				4C4760FE1FDEC2E00044FD01 /* UserUtil.m in Sources */,
-				4CFEA7861F7CAADB009CF5C9 /* ViewController.m in Sources */,
 				4CFEA79B1F7CC59A009CF5C9 /* BaseViewController.m in Sources */,
 				4C4761011FDFBBD20044FD01 /* NavigationViewController.m in Sources */,
 				4CDDB3FB1FDD61A4005657A9 /* HybirdWebPage.m in Sources */,

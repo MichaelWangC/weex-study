@@ -28,6 +28,14 @@
     self.navigationController.navigationBar.translucent = false;
 }
 
+- (UIBarButtonItem *)rt_customBackItemWithTarget:(id)target action:(SEL)action
+{
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back_white"]
+                                            style:UIBarButtonItemStylePlain
+                                           target:target
+                                           action:action];
+}
+
 #pragma mark
 #pragma mark dismiss
 - (void)dismiss{
