@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hybrid">
+        javascript:
+        if(typeof(hybridHelper)===\'undefined\'){
+            hybridHelper = {};
+            hybridHelper.callbackid = 1;
+            hybridHelper.callbackMethods = {};
+            hybridHelper.handle = function(callbackIndex,param){
+                console.log(\'webcore hybridHelper handle\');
+                hybridHelper.callbackMethods[callbackIndex](param);
+                hybridHelper.callbackMethods[callbackIndex] = undefined;
+            };
+            /****************页面跳转****************/
+            hybrid.openPage=function(data){
+                if (data.url.indexOf(\'http\') !=0) {
+                    if(data.url.indexOf(\'/\') == 0){
+                        var port = window.location.port;
+                        data.url = window.location.protocol+\'//\'+window.location.hostname+((\'\'===port)?\'\':\':\')+port+data.url;
+                    }else{
+                        var baseUrl = window.location.href.replace(/\\?.*/,\'\');
+                        var index = baseUrl.lastIndexOf(\'/\');
+                        if(index!=-1){
+                           baseUrl = baseUrl.substring(0, index+1);
+                        }
+                        data.url = baseUrl+data.url;
+                    }
+                }
+                hybrid.openPageInner(JSON.stringify(data));
+            };
+            hybrid.onResult=function(){console.log(\'onResult\');};
+            /***************导航栏参数设置************/
+            hybrid.setNavBarsAppearance=function(params){
+              hybrid.setNavBarsAppearanceInner(JSON.stringify(params));
+            };
+            /***************Request*************/
+            hybrid.request=function(settings,callback){
+                var request = {};
+                request.url = settings.url;
+                if(settings.type !== undefined) {
+                  request.type = settings.type;
+                }
+                if(settings.data !== undefined) {
+                  request.data = settings.data;
+                }
+                if (request.url.indexOf(\'http\') !=0) {
+                  if(request.url.indexOf(\'/\') == 0){
+                      var port = window.location.port;
+                      request.url = window.location.protocol+\'//\'+window.location.hostname+((\'\'===port)?\'\':\':\')+port+request.url;
+                  }else{
+                      var baseUrl = window.location.href.replace(/\\?.*/,\'\');
+                      var index = baseUrl.lastIndexOf(\'/\');
+                      if(index!=-1){
+                        baseUrl = baseUrl.substring(0, index+1);
+                      }
+                      request.url = baseUrl+request.url;
+                  }
+                }
+                var cbId = -1;
+                if(typeof(callback)===\'undefined\'){
+                }else{
+                    cbId = hybridHelper.callbackid++;
+                    hybridHelper.callbackMethods[cbId] = callback;
+                }
+                hybrid.requestInner(JSON.stringify(request),cbId);
+            };
+        }
+    </string>
+</resources>
