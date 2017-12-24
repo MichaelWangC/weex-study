@@ -24,6 +24,9 @@ public class BaseApplication extends Application {
             WXSDKEngine.registerModule("event", WXEventModule.class);
             WXSDKEngine.registerModule("device", WXDeviceModule.class);
 
+            
+            
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
