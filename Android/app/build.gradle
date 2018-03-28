@@ -9,14 +9,15 @@ final RELEASE_TYPE = props.getProperty("release_type")
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.example.michael.android"
-        minSdkVersion 15
+        applicationId "com.my.weex"
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
     buildTypes {
         release {
@@ -40,7 +41,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    compile 'com.taobao.android:weex_sdk:0.16.0'
+    compile 'com.taobao.android:weex_sdk:0.17.0'
     compile 'com.alibaba:fastjson:1.1.46.android'
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.android.support:support-v4:26.+'
@@ -49,4 +50,13 @@ dependencies {
 
     compile "com.android.support:design:26.+"
     compile 'com.jakewharton:butterknife:7.0.1'
+
+    compile 'com.jph.takephoto:takephoto_library:4.0.3'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    compile 'com.airbnb.android:lottie:2.0.0-beta4'
+
+    compile 'com.umeng.sdk:common:latest.integration'
+    compile 'com.umeng.sdk:analytics:latest.integration'
 }

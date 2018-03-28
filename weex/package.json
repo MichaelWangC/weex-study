@@ -41,7 +41,9 @@
     "weex-loader": "^0.5.3",
     "weex-styler": "^0.2.2",
     "weex-vue-loader": "^0.4.1",
-    "weex-vue-render": "^0.12.4"
+    "weex-vue-render": "^0.12.4",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5"
   },
   "dependencies": {
     "weex-vue-framework": "^2.4.2-weex.6"

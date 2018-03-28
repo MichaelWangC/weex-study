@@ -14,4 +14,9 @@ public class WXDeviceModule extends WXModule {
         return "Android";
     }
 
+//    @JSMethod(uiThread = false)
+//    public String getViewHeight() {
+//        return "200";
+//    }
+
 }

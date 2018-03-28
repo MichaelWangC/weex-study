@@ -12,6 +12,11 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, strong) UIViewController *loginController;
+@property (nonatomic, strong) UIViewController *mainController;
+@property (nonatomic, strong) UIViewController *gestureController;
+
+-(UIViewController *) gestureController:(NSString *)type;
 
 @end
 

@@ -13,7 +13,7 @@ module.exports = {
     publicWebRoot: resolve('public/dist/web'),
     publicWebPath: '/dist/web/',
     publicRoot: resolve('public'),
-    productionSourceMap: true,
+    productionSourceMap: false,
   },
   dev: {
     env: require('./dev.env'),

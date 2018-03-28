@@ -69,6 +69,7 @@ out/
 # Gradle files
 .gradle/
 build/
+!weex/build
 
 # Local configuration file (sdk path, etc)
 local.properties

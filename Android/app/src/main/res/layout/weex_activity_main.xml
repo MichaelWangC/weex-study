@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.softbi.core.weex.WeexBaseActivity">
+    android:orientation="vertical">
 
-    <FrameLayout
+    <LinearLayout
+        android:id="@+id/weex_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/line_toolbar"
+            layout="@layout/base_toolbar">
+        </include>
 
         <FrameLayout
-            android:id="@+id/container"
+            android:id="@+id/line_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffffff">
-
         </FrameLayout>
 
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"/>
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/index_tip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignWithParentIfMissing="true"
-            android:layout_below="@+id/index_progressBar"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:text="loading...."
-            android:visibility="gone"/>
+    <FrameLayout
+        android:id="@+id/weex_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff">
+        </FrameLayout>
+
+        <include
+            layout="@layout/base_toolbar"
+            android:id="@+id/frame_toolbar">
+        </include>
 
     </FrameLayout>
 
-</FrameLayout>
+</LinearLayout>

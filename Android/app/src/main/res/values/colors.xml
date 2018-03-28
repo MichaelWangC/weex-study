@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#FFFFFF</color>
-    <color name="theme_color">#5291ff</color>
+    <color name="theme_color">#ffffff</color>
+    <color name="clear_color">#00000000</color>
+    <color name="orange">#FF9D1A</color>
 
     <color name="tab_btn_selected">#5291ff</color>
     <color name="tab_btn_unselected">#333333</color>
+
+    <color name="color_text_default">#333333</color>
 
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="textcolor01">#ff5e5e</color>
-    <color name="textcolor02">#333333</color>
     <color name="textcolor03">#8e8e8e</color>
     <color name="textcolor04">#bbbbbb</color>
     <color name="textcolor05">#dedfe0</color>

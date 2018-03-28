@@ -23,10 +23,9 @@ typedef NS_ENUM(NSUInteger,ReleaseType)
 
 // API
 -(NSString *) urlApiBase;
-
+-(NSString *) urlAPILogin;
 // Weex
 -(NSString *) urlWeexBase;
--(NSString *) urlWeexHome;
 -(NSString *) urlWeexRoot;
 
 // Vue

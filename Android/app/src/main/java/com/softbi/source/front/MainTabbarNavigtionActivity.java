@@ -1,6 +1,5 @@
 package com.softbi.source.front;
 
-import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,14 +10,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.softbi.R;
 import com.softbi.config.ConfigInfo;
 import com.softbi.core.BaseActivity;
-import com.softbi.core.webcore.HybridFragment;
+import com.softbi.core.weex.WeexBaseFragment;
 import com.softbi.source.front.entity.TabEntrance;
 import com.softbi.source.front.view.MainRadioButtonView;
-import com.softbi.source.modules.mine.fragment.MineFragment;
 import com.softbi.source.widget.NoScrollViewPager;
 
 import java.util.ArrayList;
@@ -40,6 +39,7 @@ public class MainTabbarNavigtionActivity extends BaseActivity{
     @Bind(R.id.tab_bottom)
     LinearLayout tabBottom;
 
+    private static MainRadioButtonView mineTabbarItem;
     protected ArrayList<Fragment> pagelist;
     private PageAdapter pageAdapter;
     private List<MainRadioButtonView> radios = new ArrayList<>();
@@ -71,12 +71,17 @@ public class MainTabbarNavigtionActivity extends BaseActivity{
         this.initContentLayout();
     }
 
+    public static void setMineTabbarbadge(String badgeValue) {
+        mineTabbarItem.setBadge(badgeValue);
+    }
+
     /**
      * 页面渲染
      */
     private void initContentLayout() {
         this.initButtonTab();
         this.initFragmentView();
+//        viewPager.setCurrentItem(1, false);
     }
 
     /**
@@ -94,6 +99,23 @@ public class MainTabbarNavigtionActivity extends BaseActivity{
         tabEntrance.checked = true;
         tabEntrances.add(tabEntrance);
 
+        tabEntrance = new TabEntrance();
+        tabEntrance.title = "理财";
+        tabEntrance.image_selected = R.drawable.icon_tabbar_look_selected;
+        tabEntrance.image_unselected = R.drawable.icon_tabbar_look_unselected;
+        tabEntrance.color_selected = R.color.tab_btn_selected;
+        tabEntrance.color_unselected = R.color.tab_btn_unselected;
+        tabEntrances.add(tabEntrance);
+
+        tabEntrance = new TabEntrance();
+        tabEntrance.title = "客户";
+        tabEntrance.image_selected = R.drawable.icon_tabbar_notifica_selected;
+        tabEntrance.image_unselected = R.drawable.icon_tabbar_notifica_unselected;
+        tabEntrance.color_selected = R.color.tab_btn_selected;
+        tabEntrance.color_unselected = R.color.tab_btn_unselected;
+        tabEntrances.add(tabEntrance);
+
+        // 我的
         tabEntrance = new TabEntrance();
         tabEntrance.title = "我的";
         tabEntrance.image_selected = R.drawable.icon_tabbar_mine_selected;
@@ -122,6 +144,10 @@ public class MainTabbarNavigtionActivity extends BaseActivity{
                 }
             });
 
+            if (tabE.title.equals("我的")) {
+                mineTabbarItem = mainRadioButtonView;
+            }
+
             i++;
         }
     }
@@ -131,19 +157,41 @@ public class MainTabbarNavigtionActivity extends BaseActivity{
      */
     private void initFragmentView () {
         pagelist = new ArrayList<>();
-        HybridFragment baseFragment = new HybridFragment();
-        Bundle bundle = new Bundle();
-        String baseUrl = ConfigInfo.getInstance().getVueBaseUrl() + "#/mainPage";
-        bundle.putString(HybridFragment.KEY_URL, baseUrl);
-        baseFragment.setArguments(bundle);
+
+        WeexBaseFragment baseFragment = new WeexBaseFragment();
+        String baseUrl = ConfigInfo.getInstance().getWeexRootUrl() + "modules/home/home.js";
+        baseFragment.setUrl(baseUrl);
+        baseFragment.setTitle("");
+        baseFragment.setShowBackBtn(false);
+        baseFragment.setHiddenNavBar(false);
+        baseFragment.setNavBarIsClear(true);
         pagelist.add(baseFragment);
 
-        MineFragment mineFragment = new MineFragment();
-        Bundle mBundle = new Bundle();
-        String mineUrl = ConfigInfo.getInstance().getVueBaseUrl() + "#/mineInfo";
-        mBundle.putString(HybridFragment.KEY_URL, mineUrl);
-        mineFragment.setArguments(mBundle);
+        baseFragment = new WeexBaseFragment();
+        String financialUrl = ConfigInfo.getInstance().getWeexRootUrl() + "modules/financial/financial.js";
+        baseFragment.setUrl(financialUrl);
+        baseFragment.setTitle("理财");
+        baseFragment.setShowBackBtn(false);
+        baseFragment.setHiddenNavBar(false);
+        pagelist.add(baseFragment);
+
+        baseFragment = new WeexBaseFragment();
+        String custUrl = ConfigInfo.getInstance().getWeexRootUrl() + "modules/customer/customer.js";
+        baseFragment.setUrl(custUrl);
+        baseFragment.setTitle("客户");
+        baseFragment.setShowBackBtn(false);
+        baseFragment.setHiddenNavBar(false);
+        pagelist.add(baseFragment);
+
+        WeexBaseFragment mineFragment = new WeexBaseFragment();
+        String mineUrl = ConfigInfo.getInstance().getWeexRootUrl() + "modules/mine/mine.js";
+        mineFragment.setUrl(mineUrl);
+        mineFragment.setShowBackBtn(false);
+        mineFragment.setNavBarIsClear(true);
         pagelist.add(mineFragment);
+
+//        MineFragment mineFragment = new MineFragment();
+//        pagelist.add(mineFragment);
 
         pageAdapter = new PageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pageAdapter);
@@ -177,5 +225,12 @@ public class MainTabbarNavigtionActivity extends BaseActivity{
                 radios.get(i).setChecked(false);
             }
         }
+    }
+
+    /**
+     * getter setter
+     */
+    public ArrayList<Fragment> getPagelist() {
+        return pagelist;
     }
 }

@@ -10,4 +10,6 @@
 
 @interface MainTabbarController : UITabBarController
 
+@property (nonatomic, strong) UIViewController *mineViewController;
+
 @end

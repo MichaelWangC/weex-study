@@ -12,9 +12,15 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import "CoreAppDelegate.h"
+
 #import "BaseViewController.h"
 #import "BaseNavViewController.h"
 #import "PureLayout.h"
 #import "ConfigInfo.h"
+#import "UserDefaultsUtil.h"
+#import "HttpUtil.h"
+
+#import "style_colors.h"
 
 #endif /* PrefixHeader_pch */

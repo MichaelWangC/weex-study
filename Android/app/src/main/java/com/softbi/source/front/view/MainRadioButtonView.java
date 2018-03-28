@@ -21,6 +21,7 @@ public class MainRadioButtonView extends RelativeLayout {
     private TabEntrance tabEntrance;
     private TextView tv_title;//标题
     private ImageView iv_imageView;//图标
+    private TextView tv_badgeView;
 
     private int image_unselected;
     private int image_selected;
@@ -33,6 +34,7 @@ public class MainRadioButtonView extends RelativeLayout {
         View.inflate(context, R.layout.tabbar_radio_button_view, this);
         tv_title = (TextView) findViewById(R.id.title);
         iv_imageView = (ImageView) findViewById(R.id.image);
+        tv_badgeView = (TextView) findViewById(R.id.tv_cicle);
     }
     /**
      * 带有两个参数的构造方法，布局文件使用的时候调用
@@ -59,6 +61,26 @@ public class MainRadioButtonView extends RelativeLayout {
     public void setSelected() {
         this.iv_imageView.setImageResource(this.image_selected);
         this.tv_title.setTextColor(getResources().getColor(this.colro_selected));
+    }
+
+    public void setBadge(String badgeValue) {
+        if (badgeValue.equals("0")) {
+            tv_badgeView.setVisibility(View.GONE);
+        } else {
+            int badgeInt = 0;
+            try {
+                badgeInt = Integer.parseInt(badgeValue);
+                tv_badgeView.setVisibility(View.VISIBLE);
+            } catch (NumberFormatException e) {
+
+            } finally {
+                if (badgeInt > 99) {
+                    tv_badgeView.setText("99+");
+                } else {
+                    tv_badgeView.setText(badgeValue);
+                }
+            }
+        }
     }
 
     public Boolean isChecked() {

@@ -18,7 +18,6 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
 import com.softbi.core.BaseActivity;
-import com.softbi.core.BaseNavigtionActivity;
 import com.softbi.core.webcore.kit.MyWebChromeClient;
 import com.softbi.core.webcore.kit.WebViewJavascriptBridge;
 

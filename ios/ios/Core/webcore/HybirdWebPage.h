@@ -13,4 +13,7 @@
 @property (nonatomic,weak) UIViewController* viewController;
 @property (readonly) UIWebView* webView;
 
+-(void)appLogin;
+-(void)appLoginOut;
+
 @end

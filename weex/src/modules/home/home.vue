@@ -1,169 +1,288 @@
+
+/**
+* 首页
+* by sunny
+*/
+
 <template>
     <div>
-        <navpage dataRole="none" 
-            :title="title" 
-            :rightItemSrc="rightItemSrc" 
-            titleColor="white"
-            @naviBarRightItemClick="naviBarRightItemClick">
-            <!-- 内容 -->
-            <scroller class="scroller" show-scrollbar="false">
-                <slider class="slider" interval="3000" auto-play="true">
-                    <div class="frame" v-for="(img,i) in imageList" v-bind:key="i">
-                        <image class="image" resize="cover" :src="img.src"></image>
+        <list show-scrollbar="false">
+            <refresh-header  @refresh="onrefresh" :display="refreshing ? 'show' : 'hide'">
+            </refresh-header>
+            <cell>
+                <slider style="width: 750px;height: 408px;" infinite="true" interval="3000" auto-play="true">
+                    <div v-for="(item, i) in bannerList">
+                        <image style="width: 750px;height: 408px;" 
+                        resize="cover"
+                        :src="item.imgUrl"  @click="bannerClick(i)"
+                        :placeholder="require('@/images/icon_no_image.png')">
+                        </image>
                     </div>
                     <indicator class="indicator"></indicator>
                 </slider>
-
-                <!-- 快捷按钮 start -->
-                <div class="quick-btn-view">
-                    <div v-for="(items,i) in quickBtns" v-bind:key="i" class="quickBg">
-                        <quickbtn v-for="(i, item) in items" 
-                            :key="item.index" 
-                            :index="item.index" 
-                            :icon="item.icon" 
-                            :title="item.title" 
-                            :titleColor="item.titleColor"
-                            @quickBtnOnClick="quickBtnOnClick(i)">
-                        </quickbtn>
+                <div class="div-title">
+                    <text class="text-title1">财经百事通</text>
+                    <text class="text-title2">最新 / 市场行情早知道</text>
+                </div>
+                <div class="seperator-line"></div>
+            </cell>
+            <cell class="cell" v-for="(msg, i) in msgList" @click="clickDetails(i)">
+                <div class="cell-div-img">
+                    <div class="cell-img">
+                        <text class="text-title" lines="2">{{msg.title}}</text>
+                        <div class="div-other-msg">
+                            <image class="top-image" :src="require('@/images/home/icon_information_fire.png')"></image>
+                            <text class="text-source">{{msg.infoRef}}</text>
+                            <text class="text-date">{{msg.releaseTime}}</text>  
+                        </div>
                     </div>
+                    <image class="img" :src="msg.imgUrl" resize="cover" :placeholder="require('@/images/icon_no_image.png')"></image>              
                 </div>
-                <!-- 快捷按钮 end -->
-                <div class="quick-btn-view" style="background-color: red">
-                </div>
-
-                <div class="quick-btn-view" style="background-color: green">
-                </div>
-
-                <div class="quick-btn-view" style="background-color: blue">
-                </div>
-
-            </scroller>
-        </navpage>
-    </div>
+                <div class="line-view"></div>
+            </cell>
+        </list>
+  </div>
 </template>
 
+
 <script>
-import quickbtn from '@/components/quickButton.vue'
-import navpage from '@/components/navpage.vue'
+
+import urlUtil from '@/utils/url-util.js'
+import refreshHeader from '@/common/refreshHeader.vue'
 
 export default {
     data() {
         return {
-            title: "首页",
-            rightItemSrc: require('@/images/home/icon_home_message.png'),
-            imageList: [
-                {
-                    src: 'http://seopic.699pic.com/photo/50035/8104.jpg_wh1200.jpg'
-                },
-                {
-                    src: 'http://seopic.699pic.com/photo/50032/5463.jpg_wh1200.jpg'
-                },
-                {
-                    src: 'http://seopic.699pic.com/photo/50036/9518.jpg_wh1200.jpg'
-                }
-            ],
-            quickBtns: [
-                [{
-                    index: 1,
-                    icon: require('@/images/home/icon_quick_private.png'),
-                    title: '私募',
-                    titleColor: '#000000'
-                }, {
-                    index: 1,
-                    icon: require('@/images/home/icon_quick_public.png'),
-                    title: '公募',
-                    titleColor: '#000000'
-                }, {
-                    index: 1,
-                    icon: require('@/images/home/icon_quick_insurance.png'),
-                    title: '保险',
-                    titleColor: '#000000'
-                }, {
-                    index: 1,
-                    icon: require('@/images/home/icon_quick_private.png'),
-                    title: '公募',
-                    titleColor: '#000000'
-                }], [{
-                    index: 1,
-                    icon: require('@/images/home/icon_quick_public.png'),
-                    title: '公募',
-                    titleColor: '#000000'
-                }, {
-                    index: 1,
-                    icon: require('@/images/home/icon_quick_private.png'),
-                    title: '公募',
-                    titleColor: '#000000'
-                }, {
-                    index: 1,
-                    icon: require('@/images/home/icon_quick_public.png'),
-                    title: '公募',
-                    titleColor: '#000000'
-                }, {
-                    index: 1,
-                    icon: require('@/images/home/icon_quick_private.png'),
-                    title: '公募',
-                    titleColor: '#000000'
-                }]]
+            refreshing: false,
+            loadinging: false,
+            msgList: [{
+                title: "资讯标题",
+                infoRef: "网易新闻",
+                releaseTime: "一小时前",
+                imgUrl: "local:///home_banner"
+            },{
+                title: "资讯标题",
+                infoRef: "网易新闻",
+                releaseTime: "一小时前",
+                imgUrl: require('@/images/home/banner.png')
+            },{
+                title: "资讯标题",
+                infoRef: "网易新闻",
+                releaseTime: "一小时前",
+                imgUrl: "local:///home_banner"
+            }],
+            bannerList: [{
+                imgUrl: "local:///home_banner"
+            },{
+                imgUrl: require('@/images/home/banner.png')
+            }]
         }
     },
     components: {
-        quickbtn,
-        navpage
+        refreshHeader
     },
     methods: {
-        naviBarRightItemClick: function (params) {
-            var event = weex.requireModule('event')
-            event.openURL("@/App.js?hasLeftItem=true")
+        onrefresh (event) {
+            this.pageNumber = 1
+            this.refreshing = true
+            let _this = this
+            setTimeout(() => {
+                _this.refreshing = false
+            }, 3000);
         },
-        quickBtnOnClick: function (clickIndex) {
-            console.log("=========")
-            var event = weex.requireModule('event')
-            event.openURL("@/App.js?hasLeftItem=false")
+        onloading () {
+            this.pageNumber ++
+            this.loadinging = true
+            setTimeout(() => {
+                _this.loadinging = false
+            }, 1500);
+        },
+        bannerClick(index) {
+            let modal = weex.requireModule('modal')
+            modal.alert({
+                message: 'click banner index:'+index
+            }, function (value) {
+                console.log('alert callback', value)
+            })
+        },
+        clickDetails(index) {
+            let modal = weex.requireModule('modal')
+            modal.alert({
+                message: 'click list index:'+index
+            }, function (value) {
+                console.log('alert callback', value)
+            })
         }
+    },
+    created: function() {
+
     }
 }
 </script>
 
-<style scoped>
-.scroller {
-    background-color: #f4f5fa;
-}
+<style lang="less" scoped>
+@import "~styles/variable.less";
 
-.quick-btn-view {
-    margin-top: 10px;
-    left: 0;
-    right: 0;
-    height: 300px;
-}
+    .indicator {
+        width: 750px;
+        height: 408px;
+        item-color: @separate-line-color;
+        item-selected-color: white;
+        item-size: 10px;
+        position: absolute;
+        top: 168px;
+    }
 
-.quickBg {
-    flex-direction: row;
-    height: 150;
-}
+    .div-title {
+        flex: 1;
+        flex-direction: row;
+        height: 80px;
+        align-items: flex-end;
+        margin-bottom: 30px;
+    } 
+    
+    .text-title1 {
+        margin-left: 30px;
+        color: @text-default-color;
+        font-size: @text-font-size-superlarge; 
+        font-weight: 700;
+    }
 
-.image {
-    width: 750px;
-    height: 375px;
-}
+    .text-title2 {
+        flex: 1;
+        margin-left: 30px;
+        color: @text-color-gray;
+        font-size: @text-font-size-small;
+        text-align: left;
+    }
 
-.slider {
-    width: 750px;
-    height: 375px;
-}
+    .seperator-line {
+        background-color: @separate-line-color;
+        height: 1px;
+        width: 750px;
+    }
+    
+    .text-more {
+        color: @text-default-color;
+        font-size: @text-font-size-small;
+        text-align: right;
+        margin-right: 20px;
+    }
 
-.frame {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
+    .item-div {
+        margin: 0px 15px;
+        background-color: yellow;
+    }
 
-.indicator {
-    width: 750px;
-    height: 80px;
-    item-color: #f4f5fa;
-    item-selected-color: #3399ff;
-    item-size: 20px;
+  .cell {
+    height: 210px;
+    // min-height: 180px;
+    // border-bottom-style: solid;
+    // border-bottom-width: 1;
+    // border-bottom-color: @separate-line-color;
+  }
+
+  .cell-div {
+    flex: 1;
+    margin: 20px;
+    justify-content: center;
+  }
+
+ .cell-img {
+     flex: 1;
+    justify-content: center;
+    height: 140px;
+ }
+
+  .text-title {
     position: absolute;
+    left: 10px;
+    top: 0px;
+    right: 20px;
+    // margin-bottom: 20px;
+    color: @text-default-color;
+    font-size: @text-font-size-normal; 
+  }
+
+  .text-title-noimg {
+    position: absolute;
+    left: 10px;
+    // right: 10px;
+    top: 15px;
+    // margin-bottom: 20px;
+    width: @weex-screen-width - 40px;
+    color: @text-default-color;
+    font-size: @text-font-size-normal; 
+  }
+
+  .div-other-msg {
+    position: absolute;
+    left: 10px;
+    right: 10px;
     bottom: 0px;
-}
+    // margin-left: 10px;
+    flex-direction: row;
+    // margin-top: 20px;
+    // margin-bottom: 30px;
+    align-items: center;
+  }
+
+  .div-other-msg-noimg {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 15px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .text-source {
+    color: @text-color-gray;
+    font-size: @text-font-size-supersmall;
+    margin-right: 20px;
+    margin-bottom: 2px;
+  }
+  
+  .text-date {
+    left: 20px;
+    color: @text-color-gray;
+    font-size: @text-font-size-supersmall;
+    bottom: 2px;
+  }
+
+  .loading-text {
+    margin-top: 20px;
+    width: 750px;
+    text-align: center;
+  }
+
+  .cell-div-img {
+    flex: 1;
+    // margin: 30px;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    flex-direction: row; 
+    align-items: center;
+  }
+  
+  .img {
+    width: 200px;
+    height: 140px;
+    border-radius: 5px;
+  }
+
+  .line-view {
+      height: 1px;
+      background-color: @separate-line-color;
+      margin-left: 30px;
+  }
+
+  .top-image {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+  }
+
 </style>

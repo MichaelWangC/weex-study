@@ -24,7 +24,7 @@ webpack(merge(nativeWebpackConfig, {
 	}
 	if (stats.hasErrors()) {
 		var info = stats.toJson()
-		console.error('[weex-toolkit] error:', stats.errors)
+		console.error('[weex-toolkit] error:', info.errors)
 	}
 })
 

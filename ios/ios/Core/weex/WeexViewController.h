@@ -7,11 +7,17 @@
 //
 
 #import "BaseViewController.h"
+#import <WeexSDK/WXModuleProtocol.h>
 
 @interface WeexViewController : BaseViewController
 
-@property (nonatomic, strong) NSURL *url;
-
+@property (nonatomic, assign) BOOL navBarIsClear;
+@property (nonatomic, assign) BOOL isHiddenNavBar;
+@property (nonatomic, assign) BOOL closeWebMusic;
 @property (nonatomic, copy) void (^onCreate)();
+@property (nonatomic, copy) WXKeepAliveCallback navClickCallBack;
+
+-(void)setUrl:(NSString *)url title:(NSString *)title;
+-(void)clickBarButtonItem:(UIBarButtonItem *)item;
 
 @end

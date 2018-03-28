@@ -1,7 +1,7 @@
 /*
  * 通过相对路径 获取绝对路径
  */
-exports.urlUtil = {
+let urlUtil = {
     getBaseURL: function (relativePath) {
         // 相对路径设置
         var absolutePath = weex.config.bundleUrl
@@ -32,8 +32,13 @@ exports.urlUtil = {
             return null
         }
 
-        var r = url.match(reg)
-        if (r != null) return unescape(r[2])
+        // 特殊字符替换 
+        url = url.replace("&nbsp", " ")
+        // 
+        let r = url.match(reg)
+        if (r != null) return r[2]//unescape(r[2])
         return null;
     }
 }
+
+export default urlUtil;

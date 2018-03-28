@@ -21,7 +21,7 @@
 			if (data.url.indexOf('http') !=0) {
 				if(data.url.indexOf('/') == 0){
 					var port = window.location.port;
-					data.url = window.location.protocol+'//'+window.location.hostname+((''===port)?'':':')+port+data.url;
+                    data.url = window.location.protocol+'//'+window.location.hostname+((''===port)?'':':')+port+'/#'+data.url;
 				}else{
 					var baseUrl = window.location.href.replace(/\?.*/,'');
 					var index = baseUrl.lastIndexOf('/');
@@ -50,7 +50,7 @@
         hybrid.setNavRightButtons=function(titles){
             sendMessage('hsmbp://nav_right_btn?titles='+JSON.stringify(titles));
         };
-        hybrid.onNavRightButtonClicked=function(){};
+        hybrid.onNavRightButtonClicked=function(title){};
         /***************SearchBar************/
         hybrid.showSearchBar=function(placeholder){
             sendMessage('hsmbp://showSearchBar?placeholder='+placeholder);
@@ -134,7 +134,24 @@
               sendMessage('hsmbp://getUserData?key='+key+'&callback='+cbId);
           };
         };
-
+        /***************跳转到用户信息页面************/
+        hybrid.showMine=function(){
+            sendMessage('hsmbp://showMine');
+        };
+        /***************展示商智宣传pdf************/
+        hybrid.showSzPdf=function(){
+            sendMessage('hsmbp://showSzPdf');
+        };
+        /***************广播通知************/
+        hybrid.postNotification=function(name){
+            sendMessage('hsmbp://postNotification?name='+name);
+        }
+        /***************注销************/
+        hybrid.loginOut=function(){
+            sendMessage('hsmbp://loginOut');
+        }
+        hybrid.onAPPLoginOut=function(){};
+        hybrid.onAPPLogin=function(){};
 		return hybrid;
 	};
     window.hybrid = new Hybrid();

@@ -10,7 +10,7 @@ public class ConfigInfo {
     private static String RELEASE_TYPE = BuildConfig.releaseType;
 
     public  enum ReleaseType {
-        TEST,        //测试
+        DEBUG,        //测试
         PUBLISH,     //生产
         DEV   //开发环境
     }
@@ -51,7 +51,7 @@ public class ConfigInfo {
      */
     public String getApiBaseUrl() {
         switch (releaseType) {
-            case TEST:
+            case DEBUG:
                 this.baseUrl = testApiUrl();
                 break;
             case PUBLISH:
@@ -66,23 +66,37 @@ public class ConfigInfo {
         }
         return this.baseUrl;
     }
+    public String getAPILoginUrl() {
+        return this.getApiBaseUrl() + "app/gaas/login";
+    }
+
+    public String getLocalApiUrl () {
+//        return "http://10.26.160.192:8031/front/";
+        return "http://36.110.68.73:8082/gaas/";
+    }
     /**
      * api 开发环境
      */
     private String devApiUrl() {
-        return "http://192.168.225.35:8088/front/";
+        return "http://im.one2rich.cn/gaas/";
+//        return "http://10.26.160.192:8030/gaas/";
+//        return "http://10.26.160.187:8082/gaas/";
+//        return "http://10.26.160.193:8080/gaas/";
+//        return "http://10.26.160.192:8030/front/";
     }
     /**
      * api 测试环境
      */
     private String testApiUrl() {
-        return "http://192.168.225.35:8088/front/";
+        return "http://im.one2rich.cn/gaas/";
+//        return "http://10.26.160.192:8030/gaas/";
     }
     /**
-     * api 生成环境
+     * api 生产环境
      */
     private String publishApiUrl() {
-        return "http://192.168.225.35:8088/front/";
+        return "http://im.one2rich.cn/gaas/";
+        //return "http://47.96.146.178/gaas/";
     }
 
     /**
@@ -91,7 +105,7 @@ public class ConfigInfo {
      */
     public String getWeexBaseUrl() {
         switch (releaseType) {
-            case TEST:
+            case DEBUG:
                 this.baseUrl = testWeexUrl();
                 break;
             case PUBLISH:
@@ -116,14 +130,18 @@ public class ConfigInfo {
      * weex 获取根路径 url
      */
     public String getWeexRootUrl() {
-        return this.getWeexBaseUrl() + "dist/weex/";
+        String baseUrl = this.getWeexBaseUrl();
+        if ("".equals(baseUrl)) {
+            return "file:///weex/";
+        } else {
+            return baseUrl + "dist/weex/";
+        }
     }
     /**
      * weex 开发环境
      */
-    private String devWeexUrl() {
-//        return "http://192.168.2.135:8008/";
-        return "http://10.0.2.2:8008/";
+    private String devWeexUrl() {;
+         return "http://192.168.2.3:8008/";
     }
     /**
      * weex 测试环境
@@ -132,7 +150,7 @@ public class ConfigInfo {
         return "";
     }
     /**
-     * weex 生成环境
+     * weex 生产环境
      */
     private String publishWeexUrl() {
         return "";
@@ -144,7 +162,7 @@ public class ConfigInfo {
      */
     public String getVueBaseUrl() {
         switch (releaseType) {
-            case TEST:
+            case DEBUG:
                 this.baseUrl = testVueUrl();
                 break;
             case PUBLISH:
@@ -163,20 +181,21 @@ public class ConfigInfo {
      * vue 开发环境
      */
     private String devVueUrl() {
-        return "http://10.0.2.2:8081/";
+        return "http://192.168.2.3:8081/";
     }
     /**
      * vue 测试环境
      */
     private String testVueUrl() {
-        return "http://10.0.2.2:8081/";
+        return "http://im.one2rich.cn:8083/";
+//        return "http://192.168.2.3:8081/";
     }
     /**
-     * vue 生成环境
+     * vue 生产环境
      */
     private String publishVueUrl() {
-        return "";
-//        return "http://192.168.225.35:8081/";
+//        return "http://192.168.2.3:8081/";
+        return "http://im.one2rich.cn:8083/";
     }
 
 }

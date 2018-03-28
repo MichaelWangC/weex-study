@@ -8,10 +8,16 @@
 
 #import "BaseViewController.h"
 
+static NSString *HybridViewControllerNotification = @"HybridViewControllerNotification";
+
 @interface HybridViewController : BaseViewController
 
-@property (nonatomic) BOOL isHiddenNavBar;
-
+@property (nonatomic, assign) BOOL isHiddenNavBar;
+@property (nonatomic, assign) BOOL couldNoticeRefresh;
+@property (nonatomic, assign) BOOL navBarIsClear;
+    
+-(void)refreshWeb;
+-(void)setUrl:(NSString *)url title:(NSString *)title;
 -(void)loadPage:(NSString*)url withTitle:(NSString*)title;
 
 @end

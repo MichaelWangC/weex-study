@@ -66,7 +66,11 @@ var baseConfig = {
   resolve: {
     alias: {
       '@': resolve('src'),
-    }
+    },
+    modules: [
+      resolve('src'),
+      resolve('node_modules')
+    ]
   }
 }
 

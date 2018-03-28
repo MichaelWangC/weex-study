@@ -11,7 +11,7 @@
 #if TARGET_IPHONE_SIMULATOR
 #define DEMO_HOST @"127.0.0.1"
 #else
-#define DEMO_HOST @"192.168.2.135"
+#define DEMO_HOST @"192.168.2.3"
 #endif
 
 @implementation ConfigInfo
@@ -59,7 +59,7 @@
             case ReleaseTypeDebug: // 测试
                 url = [self debugApiUrl];
                 break;
-            case ReleaseTypePublish: // 生成
+            case ReleaseTypePublish: // 生产
                 url = [self publishApiUrl];
                 break;
             default:
@@ -69,6 +69,24 @@
     });
     
     return url;
+}
+
+-(NSString *)urlAPILogin {
+    return [NSString stringWithFormat:@"%@app/gaas/login", [self urlApiBase]];
+}
+
+#pragma mark
+#pragma mark api 地址
+-(NSString *) devApiUrl {
+    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
+}
+
+-(NSString *) debugApiUrl {
+    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
+}
+
+-(NSString *) publishApiUrl {
+    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
 }
 
 #pragma mark
@@ -97,18 +115,36 @@
     return url;
 }
 
--(NSString *) urlWeexHome {
-    NSString *url = [NSString stringWithFormat:@"%@dist/weex/index.js",[self urlWeexBase]];
-    return url;
-}
-
 -(NSString *) urlWeexRoot {
-    NSString *url = [NSString stringWithFormat:@"%@dist/weex/",[self urlWeexBase]];
+    NSString *baseUrl = [self urlWeexBase];
+    NSString *url = @"";
+    // 空 读取本地js 文件
+    if ([baseUrl isEqualToString:@""]) {
+        url = @"file://";
+    } else {
+        url = [NSString stringWithFormat:@"%@dist/weex/",[self urlWeexBase]];
+    }
     return url;
 }
 
 #pragma mark
-#pragma mark vue url
+#pragma mark weex 开发环境 地址
+-(NSString *) devWeexUrl {
+    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
+}
+
+#pragma mark weex 测试 地址
+-(NSString *) debugWeexUrl {
+    return @"";
+}
+
+#pragma mark weex 生产环境 地址
+-(NSString *) publishWeexUrl {
+    return @"";
+}
+
+#pragma mark
+#pragma mark vue url 分享、事件模板的url地址配置
 -(NSString *) urlVueBase {
     static NSString* url = nil;
     
@@ -134,38 +170,9 @@
 }
 
 #pragma mark
-#pragma mark api 地址
--(NSString *) devApiUrl {
-    return [NSString stringWithFormat:@"http://192.168.225.35:8088/front/"];
-}
-
--(NSString *) debugApiUrl {
-    return [NSString stringWithFormat:@"http://192.168.225.35:8088/front/"];
-}
-
--(NSString *) publishApiUrl {
-    return [NSString stringWithFormat:@"http://192.168.225.35:8088/front/"];
-}
-
-#pragma mark
-#pragma mark weex 开发环境 地址
--(NSString *) devWeexUrl {
-    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
-}
-
-#pragma mark weex 测试 地址
--(NSString *) debugWeexUrl {
-    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
-}
-
-#pragma mark weex 生产环境 地址
--(NSString *) publishWeexUrl {
-    return [NSString stringWithFormat:@"http://%@:8008/",DEMO_HOST];
-}
-
-#pragma mark
 #pragma mark vue 开发环境 地址
 -(NSString *) devVueUrl {
+//    return [NSString stringWithFormat:@"http://10.26.160.192:8990/"];
     return [NSString stringWithFormat:@"http://%@:8081/",DEMO_HOST];
 }
 

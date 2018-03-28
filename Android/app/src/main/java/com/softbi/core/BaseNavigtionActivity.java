@@ -14,9 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.softbi.R;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by michael on 2017/12/18.
@@ -81,20 +85,28 @@ public class BaseNavigtionActivity extends BaseActivity {
     }
 
     private void initTitleView(){
-        Toolbar toolbar = pageToolBar();
+        View toolbar = pageToolBar();
         if (toolbar!=null) {
-            toolbar.setTitle("");
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-
+            TextView textView = (TextView)findViewById(R.id.title_tv);
+            textView.setText("");
+            ImageButton imageButton = (ImageButton)findViewById(R.id.back_btn);
+            imageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    onBackPressed();
+                public void onClick(View view) {
+                    finish();
                 }
             });
+//            setSupportActionBar(toolbar);
+//            getSupportActionBar().setHomeButtonEnabled(true); // 设置返回键可用
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//
+//            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//
+//                @Override
+//                public void onClick(View v) {
+//                    onBackPressed();
+//                }
+//            });
         }
     }
 
@@ -103,12 +115,12 @@ public class BaseNavigtionActivity extends BaseActivity {
     public void setNavButtons(NavButtonItem[] titles,Toolbar.OnMenuItemClickListener listener){
         this.mNavButtons = titles;
         this.mNavButtonClickListener = listener;
-        pageToolBar().setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                return false;
-            }
-        });
+//        pageToolBar().setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                return false;
+//            }
+//        });
 //		pageToolBar().setOnMenuItemClickListener(this.mNavButtonClickListener);
         this.invalidateOptionsMenu();
     }
@@ -146,20 +158,22 @@ public class BaseNavigtionActivity extends BaseActivity {
 
     @Override
     public void setTitle(CharSequence title) {
-        Toolbar toolbar = pageToolBar();
+        View toolbar = pageToolBar();
         if (toolbar!=null) {
-            toolbar.setTitle(title);
+            TextView textView = toolbar.findViewById(R.id.title_tv);
+            textView.setText(title);
+//            toolbar.setTitle(title);
         }
     }
 
     public void setNavigationHidden(boolean hidden){
-        Toolbar toolbar = pageToolBar();
+        View toolbar = pageToolBar();
         if (toolbar!=null) {
             toolbar.setVisibility(hidden?View.GONE:View.VISIBLE);
         }
     }
 
-    public Toolbar pageToolBar(){
-        return (Toolbar) findViewById(R.id.base_toolbar);
+    public View pageToolBar(){
+        return findViewById(R.id.base_toolbar);
     }
 }

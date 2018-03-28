@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.ImageView;
 
+import com.softbi.core.BaseApplication;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.taobao.weex.WXEnvironment;
@@ -39,17 +40,21 @@ public class ImageAdapter implements IWXImgLoaderAdapter {
                 if (url.startsWith("//")) {
                     temp = "http:" + url;
                 }
-                if (view.getLayoutParams().width <= 0 || view.getLayoutParams().height <= 0) {
-                    return;
-                }
+//                if (view.getLayoutParams().width <= 0 || view.getLayoutParams().height <= 0) {
+//                    return;
+//                }
 
                 // data uri 图片处理
                 if (temp.startsWith("data")) {
-                    Bitmap bitmap = null;
                     try {
                         byte[] bitmapArray = Base64.decode(url.split(",")[1], Base64.DEFAULT);
-                        bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
-                        view.setImageBitmap(bitmap);
+                        final Bitmap bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+                        view.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                view.setImageBitmap(bitmap);
+                            }
+                        });
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

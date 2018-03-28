@@ -14,11 +14,13 @@
 
 @property (nonatomic, strong) LOTAnimationView *laAnimation;
 @property (nonatomic, copy) NSString *animationSrc;
-@property (nonatomic, strong) UITapGestureRecognizer *tap;
 
 @end
 
 @implementation WXLOTAnimationView
+
+WX_EXPORT_METHOD(@selector(play))
+WX_EXPORT_METHOD(@selector(stop))
 
 -(instancetype)initWithRef:(NSString *)ref type:(NSString *)type styles:(NSDictionary *)styles attributes:(NSDictionary *)attributes events:(NSArray *)events weexInstance:(WXSDKInstance *)weexInstance {
     self = [super initWithRef:ref type:type styles:styles attributes:attributes events:events weexInstance:weexInstance];
@@ -28,17 +30,17 @@
     return self;
 }
 
--(void)viewDidLoad {
-    [_laAnimation play];
-}
-
 -(UIView *)loadView {
     return _laAnimation;
 }
 
+-(void)viewDidLoad {
+    _laAnimation.contentMode = UIViewContentModeScaleAspectFit;
+    _laAnimation.clipsToBounds = YES;
+}
+
 -(void)updateAttributes:(NSDictionary *)attributes {
     [self setLOTAnimationAttributes:attributes];
-    [_laAnimation play];
 }
 
 #pragma mark 属性设置
@@ -52,8 +54,6 @@
     
     // 初始化组件
     _laAnimation = [LOTAnimationView animationNamed:_animationSrc];
-    _laAnimation.contentMode = UIViewContentModeScaleAspectFit;
-    
     // 动画是否循环播放
     if (attributes[@"loop"]) {
         BOOL loop = [WXConvert BOOL:attributes[@"loop"]];
@@ -64,6 +64,10 @@
 #pragma mark 方法暴露
 -(void)play {
     [_laAnimation play];
+}
+
+-(void)stop {
+    [_laAnimation stop];
 }
 
 @end

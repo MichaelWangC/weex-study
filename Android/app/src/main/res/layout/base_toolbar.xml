@@ -1,19 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/base_toolbar"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
-    android:fitsSystemWindows="true"
-    app:title=""
-    app:subtitle=""
-    app:navigationIcon="@drawable/icon_back_white"
-    app:titleTextColor="@android:color/white"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    app:theme="@style/ThemeOverlay.AppCompat.ActionBar" >
+    android:layout_height="50dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_bar_height"
+        android:background="@color/white"
+        android:id="@+id/base_toolbar">
 
-    <!-- android:background="?attr/colorPrimary" -->
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/nav_icon_width"
+            android:layout_height="@dimen/nav_icon_height"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_back_gray"
+            android:layout_marginLeft="10dp"
+            />
 
-</android.support.v7.widget.Toolbar>
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="产品信息"
+            android:lines="1"
+            android:maxWidth="200dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            />
+
+        <LinearLayout
+            android:id="@+id/right_btn_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="right|center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+            <!--<Button-->
+                <!--android:id="@+id/btn_nav_btn2"-->
+                <!--android:layout_width="@dimen/nav_btn_width"-->
+                <!--android:layout_height="@dimen/nav_btn_height"-->
+                <!--android:background="@color/clear_color"-->
+                <!--android:text="筛选"-->
+                <!--android:textSize="17sp"-->
+                <!--android:textColor="@color/color_text_default"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:visibility="visible"/>-->
+            <!--<Button-->
+                <!--android:id="@+id/btn_nav_btn"-->
+                <!--android:layout_width="@dimen/nav_icon_width"-->
+                <!--android:layout_height="@dimen/nav_icon_height"-->
+                <!--android:background="@color/clear_color"-->
+                <!--android:text="a"-->
+                <!--android:textSize="17sp"-->
+                <!--android:textColor="@color/color_text_default"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:visibility="visible"/>-->
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.softbi.config.ConfigInfo;
+import com.softbi.core.BaseActivity;
 import com.taobao.weex.IWXRenderListener;
 import com.taobao.weex.WXSDKEngine;
 import com.taobao.weex.WXSDKInstance;
@@ -26,29 +28,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.softbi.core.util.CommonUtils;
+import com.taobao.weex.utils.WXFileUtils;
 
 /**
  * Created by michael on 2017/10/13.
  */
 
-public class WeexAbsActivity extends Activity implements IWXRenderListener {
+public class WeexAbsActivity extends BaseActivity implements IWXRenderListener {
 
     private static final String TAG = "WeexAbsActivity";
-    protected BroadcastReceiver mBroadcastReceiver;
     protected Uri mUri;
     private String mUrl;// "http://your_current_IP:12580/examples/build/index.js";
     private String mPageName = TAG;
     protected ViewGroup mContainer;
     protected WXSDKInstance mInstance;
-    private WxReloadListener mReloadListener;
-    private WxRefreshListener mRefreshListener;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createWeexInstance();
         mInstance.onActivityCreate();
-        registerBroadcastReceiver(mBroadcastReceiver, null);
     }
 
     protected final ViewGroup getContainer() {
@@ -127,7 +126,6 @@ public class WeexAbsActivity extends Activity implements IWXRenderListener {
         if (mInstance != null) {
             mInstance.onActivityDestroy();
         }
-        unregisterBroadcastReceiver();
     }
 
     @Override
@@ -167,57 +165,6 @@ public class WeexAbsActivity extends Activity implements IWXRenderListener {
         }
     }
 
-    public void setReloadListener(WxReloadListener reloadListener) {
-        mReloadListener = reloadListener;
-    }
-
-    public void registerBroadcastReceiver(BroadcastReceiver receiver, IntentFilter filter) {
-        mBroadcastReceiver = receiver != null ? receiver : new DefaultBroadcastReceiver();
-        if (filter == null) {
-            filter = new IntentFilter();
-        }
-        filter.addAction(IWXDebugProxy.ACTION_DEBUG_INSTANCE_REFRESH);
-        filter.addAction(WXSDKEngine.JS_FRAMEWORK_RELOAD);
-        LocalBroadcastManager.getInstance(getApplicationContext())
-                .registerReceiver(mBroadcastReceiver, filter);
-        if (mReloadListener == null) {
-            setReloadListener(new WxReloadListener() {
-
-                @Override
-                public void onReload() {
-                    createWeexInstance();
-                    renderPage();
-                }
-
-            });
-        }
-
-        if (mRefreshListener == null) {
-            setRefreshListener(new WxRefreshListener() {
-
-                @Override
-                public void onRefresh() {
-                    createWeexInstance();
-                    renderPage();
-                }
-
-            });
-        }
-    }
-
-    public void unregisterBroadcastReceiver() {
-        if (mBroadcastReceiver != null) {
-            LocalBroadcastManager.getInstance(getApplicationContext())
-                    .unregisterReceiver(mBroadcastReceiver);
-            mBroadcastReceiver = null;
-        }
-        setReloadListener(null);
-        setRefreshListener(null);
-    }
-
-    public void setRefreshListener(WxRefreshListener refreshListener) {
-        mRefreshListener = refreshListener;
-    }
 
     public String getUrl() {
         return mUrl;
@@ -254,14 +201,16 @@ public class WeexAbsActivity extends Activity implements IWXRenderListener {
         CommonUtils.throwIfNull(mContainer, new RuntimeException("Can't render page, container is null"));
         Map<String, Object> options = new HashMap<>();
         options.put(WXSDKInstance.BUNDLE_URL, url);
+
         mInstance.renderByUrl(
                 getPageName(),
                 url,
                 options,
                 jsonInitData,
-                CommonUtils.getDisplayWidth(this),
-                CommonUtils.getDisplayHeight(this),
+                -1,
+                -1,
                 WXRenderStrategy.APPEND_ASYNC);
+
     }
 
     public String getPageName() {
@@ -274,20 +223,5 @@ public class WeexAbsActivity extends Activity implements IWXRenderListener {
 
     public interface WxRefreshListener {
         void onRefresh();
-    }
-
-    public class DefaultBroadcastReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (IWXDebugProxy.ACTION_DEBUG_INSTANCE_REFRESH.equals(intent.getAction())) {
-                if (mRefreshListener != null) {
-                    mRefreshListener.onRefresh();
-                }
-            } else if (WXSDKEngine.JS_FRAMEWORK_RELOAD.equals(intent.getAction())) {
-                if (mReloadListener != null) {
-                    mReloadListener.onReload();
-                }
-            }
-        }
     }
 }

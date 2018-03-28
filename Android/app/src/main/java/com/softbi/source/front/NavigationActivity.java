@@ -3,10 +3,18 @@ package com.softbi.source.front;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
 import com.softbi.R;
+import com.softbi.config.ConfigInfo;
 import com.softbi.core.BaseActivity;
+import com.softbi.utils.HttpUtil;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +32,26 @@ public class NavigationActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navi_page);
         ButterKnife.bind(this);
+
+        this.login();
+    }
+
+    private void login () {
+//        String url = ConfigInfo.getInstance().getApiBaseUrl() + "login";
+//        Map<String, String> params = new HashMap<>();
+//        params.put("username", "zhangwei");
+//        params.put("password", "111111");
+//        HttpUtil.getInstance().post(url, params, new HttpUtil.HttpCallback<JSONObject>() {
+//            @Override
+//            public void done(JSONObject data) {
+//                Log.i("login data", data.toString());
+//            }
+//
+//            @Override
+//            public void fail(Exception e) {
+//
+//            }
+//        });
     }
 
     @OnClick(R.id.start_btn)
