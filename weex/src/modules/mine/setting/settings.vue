@@ -1,6 +1,5 @@
 ／**
 *
-* by sunny
 **/
 <template>
 

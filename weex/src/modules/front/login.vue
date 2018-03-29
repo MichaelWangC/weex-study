@@ -1,6 +1,5 @@
 /*
  * 登录界面
- * by wangc
  */
 <template>
   <div>
@@ -12,8 +11,8 @@
     </slider>
     <div class="scroller" show-scrollbar="false">
       <div class="login_text_logo">
-        <text class="text_logo">您的智能理财，</text>
-        <text class="text_logo">从“建议书”开始！</text>
+        <text class="text_logo">您的weex之旅，</text>
+        <text class="text_logo">从此刻开始！</text>
         <text class="text_eng_logo" style="margin-top:20px;">From one financial plan to a rich and</text>
         <text class="text_eng_logo">wonderful life</text>
       </div>

@@ -1,6 +1,5 @@
 /** 
 * 手势密码
-* by wangc
 */
 <template>
   <div v-on:panstart="panstart($event)" v-on:panmove="panmove($event)" v-on:panend="panend($event)">

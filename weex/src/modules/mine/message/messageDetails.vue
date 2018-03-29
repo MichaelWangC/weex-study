@@ -1,6 +1,5 @@
 ／**
 * 消息详情
-* by longlw
 **/
 <template>
   <div>

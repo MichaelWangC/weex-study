@@ -1,7 +1,6 @@
 
 /**
 * 首页
-* by sunny
 */
 
 <template>

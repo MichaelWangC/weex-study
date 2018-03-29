@@ -100,7 +100,7 @@ public class MainTabbarNavigtionActivity extends BaseActivity{
         tabEntrances.add(tabEntrance);
 
         tabEntrance = new TabEntrance();
-        tabEntrance.title = "理财";
+        tabEntrance.title = "看看";
         tabEntrance.image_selected = R.drawable.icon_tabbar_look_selected;
         tabEntrance.image_unselected = R.drawable.icon_tabbar_look_unselected;
         tabEntrance.color_selected = R.color.tab_btn_selected;
@@ -170,7 +170,7 @@ public class MainTabbarNavigtionActivity extends BaseActivity{
         baseFragment = new WeexBaseFragment();
         String financialUrl = ConfigInfo.getInstance().getWeexRootUrl() + "modules/financial/financial.js";
         baseFragment.setUrl(financialUrl);
-        baseFragment.setTitle("理财");
+        baseFragment.setTitle("看看");
         baseFragment.setShowBackBtn(false);
         baseFragment.setHiddenNavBar(false);
         pagelist.add(baseFragment);
@@ -180,7 +180,7 @@ public class MainTabbarNavigtionActivity extends BaseActivity{
         baseFragment.setUrl(custUrl);
         baseFragment.setTitle("客户");
         baseFragment.setShowBackBtn(false);
-        baseFragment.setHiddenNavBar(false);
+        baseFragment.setHiddenNavBar(true);
         pagelist.add(baseFragment);
 
         WeexBaseFragment mineFragment = new WeexBaseFragment();

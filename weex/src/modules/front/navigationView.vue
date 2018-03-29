@@ -1,6 +1,5 @@
 /**
  * 引导页
- * by wangc
  */
 <template>
   <div>

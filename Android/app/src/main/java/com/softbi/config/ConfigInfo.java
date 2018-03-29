@@ -140,7 +140,7 @@ public class ConfigInfo {
     /**
      * weex 开发环境
      */
-    private String devWeexUrl() {;
+    private String devWeexUrl() {
          return "http://192.168.2.3:8008/";
     }
     /**

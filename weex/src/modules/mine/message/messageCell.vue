@@ -1,6 +1,5 @@
 ／**
 * 消息单元格
-* by longlw
 **/
 <template>
     <div class="cell" @click="readmore">

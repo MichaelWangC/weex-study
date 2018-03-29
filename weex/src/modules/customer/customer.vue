@@ -1,10 +1,9 @@
 ／**
-* 客户首页
-*	by sunny
+* 
 **/
 <template>
   <div>
-    客户客户
+    我隐藏了导航栏哦~
   </div>
 </template>
 

@@ -1,6 +1,5 @@
 ／**
 * 消息模块
-* by longlw
 **/
 <template>
 
