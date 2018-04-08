@@ -69,4 +69,19 @@ WX_EXPORT_METHOD(@selector(setNavBarColor:alpha:callback:))
     }
 }
 
+-(void)setNavBarTitle:(NSString *)title {
+    [weexInstance.viewController.navigationItem setTitle:title];
+}
+
+-(void)setStatusBarStyle:(BOOL)isLightContent {
+    BaseViewController *baseController = (BaseViewController *)weexInstance.viewController;
+    if (isLightContent) {
+        baseController.statusBarIsLightContent = YES;
+    } else {
+        baseController.statusBarIsLightContent = NO;
+    }
+    
+    [baseController setNeedsStatusBarAppearanceUpdate];
+}
+
 @end
