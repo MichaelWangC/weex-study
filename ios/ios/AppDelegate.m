@@ -113,6 +113,7 @@
     }
     
     WeexViewController *weexController = [[WeexViewController alloc] init];
+    weexController.statusBarIsLightContent = YES;
     [weexController setNavBarIsClear:YES];
     [weexController setUrl:mainUrl title:@""];
     
