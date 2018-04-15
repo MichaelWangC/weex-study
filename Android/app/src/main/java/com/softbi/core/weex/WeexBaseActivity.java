@@ -83,6 +83,9 @@ public class WeexBaseActivity extends WeexAbsActivity {
             } else {
                 backBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.icon_back_white));
             }
+
+            TextView textView = baseToolBar.findViewById(R.id.title_tv);
+            textView.setTextColor(getResources().getColor(R.color.white));
         }
 
         // 导航栏标题

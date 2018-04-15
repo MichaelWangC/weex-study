@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.softbi.extend.adapter.ImageAdapter;
 import com.softbi.extend.component.WXLOTAnimationView;
+import com.softbi.extend.component.WXLineChartView;
 import com.softbi.extend.component.WXMyWebView;
 import com.softbi.extend.component.WXPieChartView;
 import com.softbi.extend.module.WXDeviceModule;
@@ -39,6 +40,7 @@ public class WeexSDKManager {
             WXSDKEngine.registerComponent("pieChart", WXPieChartView.class);
             WXSDKEngine.registerComponent("animal", WXLOTAnimationView.class);
             WXSDKEngine.registerComponent("web", WXMyWebView.class);
+            WXSDKEngine.registerComponent("lineChart", WXLineChartView.class);
 
         } catch (Exception e) {
             e.printStackTrace();
